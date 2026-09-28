@@ -138,7 +138,7 @@
         <!-- ========================================================================= -->
         <section id="heroScreen" class="fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-black transition-opacity duration-700">
             
-            <!-- CAPA 1: ANTESALA CON GIF ANIMADO -->
+            <!-- CAPA 1: ANTESALA CON GIF ANIMADO (LIMPIA Y MINIMALISTA) -->
             <div id="splashLayer" class="absolute inset-0 z-10 flex flex-col justify-between p-6 md:p-10 transition-opacity duration-700">
                 <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                     <img id="gifImageElement" 
@@ -148,8 +148,8 @@
                          class="w-full h-full object-cover scale-105 filter brightness-[0.60] contrast-[1.2] transition-transform duration-1000">
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/80 z-0 pointer-events-none"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,rgba(0,0,0,0.85)_100%)] z-0 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/80 z-0 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.85)_100%)] z-0 pointer-events-none"></div>
 
                 <!-- Barra Superior -->
                 <header class="relative z-10 w-full flex items-center justify-between">
@@ -159,12 +159,12 @@
                         </div>
                         <div>
                             <span class="font-display font-bold tracking-widest text-base md:text-lg text-white block">CAMIMPEG</span>
-                            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-medium">Relanzamiento Internacional & Portafolio Digital de Negociaciones</span>
+                            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-medium">Relanzamiento Internacional</span>
                         </div>
                     </div>
 
                     <div class="flex items-center gap-3">
-                        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold-light text-xs font-mono">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold-light text-xs font-mono">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ring"></span>
                             PROSPECTO CONFIDENCIAL
                         </span>
@@ -174,44 +174,33 @@
                     </div>
                 </header>
 
-                <!-- Bloque Central -->
+                <!-- Bloque Central: Limpio, Sobrio y Contundente -->
                 <div class="relative z-10 max-w-4xl mx-auto px-6 text-center my-auto flex flex-col items-center">
-                    <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full glass-panel text-zinc-300 text-xs tracking-widest uppercase font-semibold border border-white/10">
-                        <i class="fa-solid fa-laptop-code text-brand-gold text-xs"></i>
-                        Web-App Interactiva • Cinematografía Ejecutiva • Recorridos 360°
-                    </div>
-
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white leading-tight uppercase mb-4 drop-shadow-lg">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-tight uppercase mb-10 drop-shadow-lg">
                         Solidez Operativa. <br>
                         <span class="bg-gradient-to-r from-brand-gold-light via-brand-gold to-yellow-600 bg-clip-text text-transparent">
                             Certeza para Inversionistas.
                         </span>
                     </h1>
 
-                    <p class="max-w-2xl text-xs md:text-sm text-zinc-300 font-normal leading-relaxed mb-8 drop-shadow">
-                        Presentación de la herramienta de persuasión digital y portafolio virtual para la Junta Directiva de CAMIMPEG: diseñada para validar capacidades reales y cerrar alianzas en cumbres y mesas bilaterales.
-                    </p>
-
                     <!-- Botón Comenzar -->
-                    <button id="btnStartPresentation" class="group relative inline-flex items-center justify-center gap-4 px-10 py-4.5 rounded-2xl bg-brand-gold text-black font-display font-bold text-sm md:text-base tracking-wider uppercase transition-all duration-300 hover:bg-brand-gold-light hover:scale-105 shadow-glow active:scale-95 cursor-pointer">
+                    <button id="btnStartPresentation" class="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-brand-gold text-black font-display font-bold text-sm md:text-base tracking-wider uppercase transition-all duration-300 hover:bg-brand-gold-light hover:scale-105 shadow-glow active:scale-95 cursor-pointer">
                         <div class="w-8 h-8 rounded-full bg-black text-brand-gold flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                             <i class="fa-solid fa-play text-xs pl-0.5"></i>
                         </div>
                         <span>Comenzar Presentación</span>
                     </button>
-                    
-                    <span class="text-zinc-400 text-[11px] tracking-wider uppercase mt-4 block">Toque para reproducir pieza audiovisual y acceder al portafolio interactivo</span>
                 </div>
 
                 <!-- Footer -->
                 <footer class="relative z-10 w-full px-4 py-2 border-t border-white/10 glass-panel flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
                     <div class="flex items-center gap-2">
                         <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="Logo mini" class="h-4 w-auto opacity-70">
-                        <span>Herramienta de Innovación para Exposiciones y Rondas de Inversión</span>
+                        <span>Ecosistema de Innovación & Negociación</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-shield-halved text-brand-gold"></i>
-                        <span>Uso Privado para la Presidencia y Directores de Línea</span>
+                        <span>Uso Privado para la Junta Directiva y Aliados Estratégicos</span>
                     </div>
                 </footer>
             </div>
