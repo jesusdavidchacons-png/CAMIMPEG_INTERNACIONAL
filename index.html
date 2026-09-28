@@ -81,13 +81,13 @@
 <body class="h-full bg-black text-white font-sans overflow-x-hidden touch-app selection:bg-brand-gold selection:text-black">
 
     <!-- ========================================================================= -->
-    <!-- COMPUERTA DE ORIENTACIÓN: FUERZA MODO HORIZONTAL EN DISPOSITIVOS MÓVILES -->
+    <!-- COMPUERTA DE ORIENTACIÓN HORIZONTAL (Para iPad y Tablets) -->
     <!-- ========================================================================= -->
     <div id="orientationGate" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-between p-8 text-center transition-all duration-700 hidden">
         <div class="flex items-center gap-3 pt-4">
             <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG Logo" class="h-10 w-auto object-contain">
             <div class="text-left border-l border-zinc-700 pl-3">
-                <span class="text-xs font-mono text-brand-gold tracking-widest uppercase block">Requisito de Visualización</span>
+                <span class="text-xs font-mono text-brand-gold tracking-widest uppercase block">Requisito de Proyección</span>
                 <span class="text-[11px] text-zinc-400 font-sans">Formato Ejecutivo Horizontal (16:9)</span>
             </div>
         </div>
@@ -199,11 +199,11 @@
 
 
     <!-- ========================================================================= -->
-    <!-- PANTALLA 2: LÍNEAS ESTRATÉGICAS Y PORTAFOLIO VIRTUAL -->
+    <!-- PANTALLA 2: APLICACIÓN PRINCIPAL (CATÁLOGO DE LÍNEAS & PESTAÑA ECONÓMICA) -->
     <!-- ========================================================================= -->
     <main id="portfolioScreen" class="relative z-10 flex-1 flex flex-col opacity-0 pointer-events-none transition-opacity duration-700 pb-16">
         
-        <!-- Barra Superior Fija -->
+        <!-- Barra Superior Fija con Selector de Pestañas -->
         <nav class="sticky top-0 z-30 w-full glass-panel border-b border-brand-border px-6 py-3.5 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <button id="btnBackToHero" class="px-3.5 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs flex items-center gap-2 cursor-pointer transition-colors">
@@ -213,125 +213,336 @@
                 <div class="flex items-center gap-3">
                     <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-8 w-auto object-contain">
                     <div>
-                        <h2 class="font-display font-bold text-sm tracking-wide text-white">LÍNEAS ESTRATÉGICAS DE OPERACIÓN</h2>
-                        <p class="text-[10px] text-zinc-400 font-mono">PORTAFOLIO VIRTUAL B2B</p>
+                        <h2 class="font-display font-bold text-sm tracking-wide text-white">ECOSISTEMA DE NEGOCIACIÓN B2B</h2>
+                        <p class="text-[10px] text-zinc-400 font-mono">PORTAFOLIO VIRTUAL & PRODUCCIÓN</p>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3">
+            <!-- Botones de Navegación entre Vistas -->
+            <div class="flex items-center gap-2">
+                <!-- Selector Pestaña: Líneas -->
+                <button id="navTabLines" class="px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-white text-black shadow-glow flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-layer-group text-xs"></i>
+                    <span>Líneas (6)</span>
+                </button>
+
+                <!-- Selector Pestaña: Propuesta Económica & Desglose -->
+                <button id="navTabEconomics" class="px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-brand-gold/60 hover:text-white flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-calculator text-brand-gold text-xs"></i>
+                    <span>Propuesta Económica</span>
+                </button>
+
+                <div class="h-6 w-px bg-zinc-800 mx-1 hidden md:block"></div>
+
+                <!-- Botón 360° Rápido -->
                 <button id="btnNavOpenVr" class="px-3.5 py-2 rounded-xl bg-brand-gold/15 border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-black font-display font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-glow-subtle">
                     <i class="fa-solid fa-vr-cardboard"></i>
-                    <span>Ver 360°</span>
+                    <span>360°</span>
                 </button>
-                <button id="btnOpenWebAppModal" class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-brand-gold/50 text-zinc-200 text-xs font-semibold tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-mobile-screen text-brand-gold"></i>
-                    <span>La Web-App como Herramienta</span>
-                </button>
-                <button id="btnOpenEcosystemModal" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-glow cursor-pointer">
-                    Ecosistema $62.8K
-                </button>
+
+                <!-- Ficha de Contacto -->
                 <button id="btnOpenInquiryModal" class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-xs text-zinc-300 cursor-pointer">
                     Contacto
                 </button>
             </div>
         </nav>
 
-        <!-- Banner Estratégico: La Web-App como Portafolio Virtual de Negociación -->
-        <section class="max-w-7xl mx-auto w-full px-6 pt-6">
-            <div class="rounded-3xl bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-brand-gold/30 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-glow-subtle">
-                <div class="max-w-3xl">
-                    <div class="flex items-center gap-2 text-brand-gold text-xs font-mono tracking-widest uppercase mb-2">
-                        <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Innovación Tecnológica para Relanzamiento de Marca
+
+        <!-- ========================================================================= -->
+        <!-- VISTA 1: CATÁLOGO DE LÍNEAS ESTRATÉGICAS (LN-01 a LN-06) -->
+        <!-- ========================================================================= -->
+        <div id="viewLinesSection" class="flex flex-col flex-1">
+            
+            <!-- Banner Estratégico (Sin precios) -->
+            <section class="max-w-7xl mx-auto w-full px-6 pt-6">
+                <div class="rounded-3xl bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-brand-gold/30 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-glow-subtle">
+                    <div class="max-w-3xl">
+                        <div class="flex items-center gap-2 text-brand-gold text-xs font-mono tracking-widest uppercase mb-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Relanzamiento Internacional de Marca
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-display font-bold text-white tracking-tight">
+                            Portafolio Virtual & Contenido Cinematográfico para Exposiciones y Negociaciones
+                        </h2>
+                        <p class="text-xs md:text-sm text-zinc-300 mt-2 leading-relaxed">
+                            Paquete integral diseñado para proyectar la solvencia de CAMIMPEG en pantallas verticales de stands, ruedas de inversión y redes sociales. Cada línea cuenta con microdocumental, 3 cápsulas verticales (30s), historias y banco fotográfico de alta gama.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 shrink-0 w-full md:w-auto">
+                        <button onclick="switchToEconomicsTab()" class="px-5 py-3 rounded-2xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-glow text-center cursor-pointer">
+                            Ver Desglose Económico
+                        </button>
+                        <button id="btnOpenWebAppModal" class="text-xs font-mono text-zinc-400 hover:text-white underline text-center transition-colors">
+                            Detalles del Portafolio Virtual (PWA)
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filtros y Buscador -->
+            <header class="max-w-7xl mx-auto w-full px-6 pt-8 pb-4">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-tight">Capacidades Operativas por Sector</h2>
+                        <p class="text-xs text-zinc-400 mt-0.5">Explore las 6 líneas y sus componentes de producción audiovisual.</p>
+                    </div>
+                    <div class="relative w-72">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar por código, activo o línea..." class="w-full pl-8 pr-3 py-2 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand-gold transition-colors">
+                    </div>
+                </div>
+
+                <!-- Botones de Filtrado -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="filterContainer">
+                    <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-semibold bg-white text-black transition-all cursor-pointer">Todas (<span id="countAll">6</span>)</button>
+                    <button data-filter="hidrocarburos" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-01 Hidrocarburos</button>
+                    <button data-filter="mineria" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-02 Minería</button>
+                    <button data-filter="seguridad" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-03 Seguridad</button>
+                    <button data-filter="transporte" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-04 Guanta</button>
+                    <button data-filter="comercializacion" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-05 Insumos</button>
+                    <button data-filter="aduana" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-06 Aduana</button>
+                </div>
+            </header>
+
+            <!-- Rejilla de Tarjetas -->
+            <section class="max-w-7xl mx-auto w-full px-6 flex-1">
+                <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Inyectadas dinámicamente por JS -->
+                </div>
+
+                <div id="emptyState" class="hidden text-center py-20 border border-dashed border-zinc-800 rounded-3xl bg-zinc-950/40">
+                    <i class="fa-regular fa-folder-open text-4xl text-zinc-600 mb-3"></i>
+                    <h3 class="font-display font-semibold text-white text-base">No se encontraron líneas coincidentes</h3>
+                    <p class="text-xs text-zinc-500 mt-1">Pruebe con otros términos de búsqueda.</p>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================================================= -->
+        <!-- VISTA 2: PESTAÑA DE PROPUESTA ECONÓMICA & DESGLOSE INTEGRAL -->
+        <!-- ========================================================================= -->
+        <div id="viewEconomicsSection" class="hidden flex-col flex-1 max-w-7xl mx-auto w-full px-6 pt-8">
+            
+            <!-- Encabezado de la Pestaña Financiera -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 text-brand-gold text-xs font-mono tracking-widest uppercase mb-1">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> Presupuesto & Formato de Contratación
                     </div>
                     <h2 class="text-2xl md:text-3xl font-display font-bold text-white tracking-tight">
-                        La Web-App como Portafolio Virtual Permanente para Negociaciones y Cumbres
+                        Desglose Integral de Inversión
                     </h2>
-                    <p class="text-xs md:text-sm text-zinc-300 mt-2 leading-relaxed">
-                        Desarrollada para operar en iPad, pantallas táctiles y stands de exposiciones internacionales (ADIPEC, CERAWeek, ruedas de negocio). Permite a la directiva de CAMIMPEG demostrar la infraestructura física activa de las 6 líneas, disipando el escepticismo de los inversores sin requerir visitas en campo de alto riesgo logístico.
+                    <p class="text-xs text-zinc-400 max-w-2xl mt-1">
+                        Estructura comercial transparente con opción de contratación por línea individual o paquete completo con beneficio del 10% de descuento.
                     </p>
                 </div>
 
-                <div class="flex flex-col gap-2 shrink-0 w-full md:w-auto">
-                    <div class="px-5 py-3 rounded-2xl bg-black/70 border border-white/10 text-center">
-                        <span class="text-[10px] font-mono uppercase text-zinc-400 block">Inversión Paquete Completo</span>
-                        <span class="text-2xl font-display font-bold text-brand-gold">USD 62.800</span>
+                <button onclick="switchToLinesTab()" class="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white text-xs font-mono transition-colors flex items-center gap-2 self-start md:self-auto cursor-pointer">
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                    <span>Volver a las Líneas</span>
+                </button>
+            </div>
+
+            <!-- Gran Tarjeta de Cierre: Resumen Económico con Descuento del 10% -->
+            <div class="rounded-3xl bg-gradient-to-b from-zinc-900 via-zinc-950 to-black border-2 border-brand-gold/60 p-6 md:p-8 mb-10 shadow-glow">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-6 border-b border-zinc-800">
+                    <div class="max-w-2xl">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-[10px] font-mono uppercase mb-3">
+                            <i class="fa-solid fa-gem text-[10px]"></i>
+                            Paquete Maestro Recomendado
+                        </span>
+                        <h3 class="text-2xl md:text-3xl font-display font-extrabold text-white leading-tight">
+                            Ecosistema Completo: 6 Líneas + Portafolio Virtual (PWA)
+                        </h3>
+                        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+                            Incluye el despliegue total en terreno para las 6 líneas operativas (18 cápsulas verticales de 30s, historias promocionales, 6 microdocumentales cinematográficos, 6 paquetes fotográficos industriales) y la Web-App interactiva como Portafolio Virtual.
+                        </p>
                     </div>
-                    <button onclick="document.getElementById('btnOpenEcosystemModal').click()" class="text-xs font-mono text-zinc-400 hover:text-white underline text-center transition-colors">
-                        Ver Desglose de Producción & 360°
-                    </button>
-                </div>
-            </div>
-        </section>
 
-        <!-- Filtros y Buscador -->
-        <header class="max-w-7xl mx-auto w-full px-6 pt-8 pb-4">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-                <div>
-                    <h2 class="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-tight">Capacidades Operativas & Argumentario de Venta</h2>
-                    <p class="text-xs text-zinc-400 mt-0.5">Explore cómo cada línea disipa el dolor del inversionista mediante validación visual.</p>
+                    <!-- Cuadro de Precios con Descuento -->
+                    <div class="bg-black/80 rounded-2xl p-6 border border-brand-gold/40 shrink-0 lg:min-w-[320px]">
+                        <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-1">
+                            <span>Subtotal Nominal (6 Líneas + Web-App):</span>
+                            <span class="line-through text-zinc-500">USD 120.000</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-mono text-emerald-400 font-bold mb-3">
+                            <span>Descuento Paquete Completo (10%):</span>
+                            <span>- USD 12.000</span>
+                        </div>
+                        <div class="pt-3 border-t border-zinc-800">
+                            <span class="text-[11px] font-mono text-zinc-400 uppercase tracking-widest block">Inversión Final Cerrada</span>
+                            <span class="text-3xl md:text-4xl font-display font-extrabold text-brand-gold">USD 108.000</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="relative w-72">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar por código, activo o línea..." class="w-full pl-8 pr-3 py-2 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand-gold transition-colors">
+
+                <!-- Esquema de Hitos de Pago -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 text-xs">
+                    <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80">
+                        <span class="text-[10px] font-mono text-brand-gold uppercase block font-bold mb-1">Hito 1 · 50% Anticipo</span>
+                        <div class="text-lg font-display font-bold text-white mb-1">USD 54.000</div>
+                        <p class="text-[11px] text-zinc-400">Inicio de preproducción, guiones técnicos, logística y arquitectura de la Web-App.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80">
+                        <span class="text-[10px] font-mono text-brand-gold uppercase block font-bold mb-1">Hito 2 · 30% Jornadas de Terreno</span>
+                        <div class="text-lg font-display font-bold text-white mb-1">USD 32.400</div>
+                        <p class="text-[11px] text-zinc-400">Al culminar las jornadas de rodaje y captura fotográfica en todas las locaciones.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80">
+                        <span class="text-[10px] font-mono text-brand-gold uppercase block font-bold mb-1">Hito 3 · 20% Entrega Final</span>
+                        <div class="text-lg font-display font-bold text-white mb-1">USD 21.600</div>
+                        <p class="text-[11px] text-zinc-400">Entrega de masters en alta definición, cápsulas verticales, fotos y despliegue PWA.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Botones de Filtrado -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="filterContainer">
-                <button data-filter="all" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-semibold bg-white text-black transition-all cursor-pointer">Todas (<span id="countAll">6</span>)</button>
-                <button data-filter="hidrocarburos" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-01 Hidrocarburos</button>
-                <button data-filter="mineria" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-02 Minería</button>
-                <button data-filter="seguridad" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-03 Seguridad</button>
-                <button data-filter="transporte" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-04 Guanta</button>
-                <button data-filter="comercializacion" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-05 Comercialización</button>
-                <button data-filter="aduana" class="filter-btn px-4 py-1.5 rounded-xl text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all cursor-pointer">LN-06 Aduana</button>
-            </div>
-        </header>
+            <!-- Tabla Detallada de Componentes Individuales -->
+            <div class="mb-10">
+                <h3 class="text-lg font-display font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-brand-gold"></i>
+                    <span>Desglose por Componente Individual</span>
+                </h3>
 
-        <!-- Rejilla de Tarjetas Completas de las 6 Líneas -->
-        <section class="max-w-7xl mx-auto w-full px-6 flex-1">
-            <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Inyectadas dinámicamente por JS con toda la información -->
+                <div class="overflow-x-auto rounded-2xl border border-zinc-800">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-zinc-900 text-zinc-300 font-mono uppercase text-[10px] border-b border-zinc-800">
+                            <tr>
+                                <th class="p-4">Ítem / Componente</th>
+                                <th class="p-4">Alcance & Entregables</th>
+                                <th class="p-4">Formato / Salida</th>
+                                <th class="p-4 text-right">Inversión Individual</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-900 bg-zinc-950/60 text-zinc-300">
+                            <!-- LN-01 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-01 | Hidrocarburos & Gas</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- LN-02 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-02 | Minería Estratégica</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- LN-03 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-03 | Seguridad Integral</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- LN-04 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-04 | Transporte Guanta</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- LN-05 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-05 | Comercialización</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- LN-06 -->
+                            <tr class="hover:bg-zinc-900/40">
+                                <td class="p-4 font-mono font-bold text-white">LN-06 | Aduana Exterior</td>
+                                <td class="p-4">Microdocumental + 3 Cápsulas 30s + Historias + Banco Fotográfico</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">16:9 + Vertical 9:16 + RAW/JPG HD</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 19.000</td>
+                            </tr>
+                            <!-- Web-App -->
+                            <tr class="hover:bg-zinc-900/40 bg-brand-gold/5">
+                                <td class="p-4 font-mono font-bold text-white">Ecosistema Web-App (Portafolio Virtual)</td>
+                                <td class="p-4">Plataforma PWA B2B interactiva para iPad/Tablets, distribución QR y visualización offline</td>
+                                <td class="p-4 font-mono text-[11px] text-zinc-400">PWA / Web-App Multiplataforma</td>
+                                <td class="p-4 text-right font-mono font-bold text-brand-gold">USD 6.000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-zinc-900 font-mono text-xs border-t border-zinc-800">
+                            <tr>
+                                <td colspan="3" class="p-4 text-right font-bold text-white">Total Individual (Sin Descuento):</td>
+                                <td class="p-4 text-right font-bold text-zinc-300">USD 120.000</td>
+                            </tr>
+                            <tr class="text-brand-gold">
+                                <td colspan="3" class="p-4 text-right font-bold">Total Paquete Completo (Con 10% Descuento):</td>
+                                <td class="p-4 text-right font-bold text-base">USD 108.000</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <p class="text-[11px] text-zinc-500 mt-3 leading-relaxed">
+                    * <strong class="text-zinc-400">Nota Operativa:</strong> Los costos logísticos de traslados interurbanos, alojamiento, alimentación del equipo de rodaje y los permisos de acceso militar/industrial a instalaciones son gestionados y coordinados directamente por CAMIMPEG.
+                </p>
             </div>
 
-            <div id="emptyState" class="hidden text-center py-20 border border-dashed border-zinc-800 rounded-3xl bg-zinc-950/40">
-                <i class="fa-regular fa-folder-open text-4xl text-zinc-600 mb-3"></i>
-                <h3 class="font-display font-semibold text-white text-base">No se encontraron líneas coincidentes</h3>
-                <p class="text-xs text-zinc-500 mt-1">Pruebe con otros términos de búsqueda.</p>
+            <!-- Botón de Acción -->
+            <div class="text-center pb-8">
+                <button onclick="document.getElementById('btnOpenInquiryModal').click()" class="px-8 py-4 rounded-2xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-widest hover:bg-brand-gold-light transition-all shadow-glow cursor-pointer">
+                    Solicitar Formalización de Propuesta
+                </button>
             </div>
-        </section>
 
-        <!-- Métricas Institucionales -->
-        <section class="max-w-7xl mx-auto w-full px-6 mt-12">
-            <div class="rounded-3xl glass-panel p-6 border border-zinc-800 grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                    <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Líneas de Negocio</span>
-                    <div class="text-2xl md:text-3xl font-display font-bold text-white mt-1">06 Áreas</div>
-                    <p class="text-xs text-zinc-400 mt-0.5">Cobertura integral de operaciones estratégicas.</p>
-                </div>
-                <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                    <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Validación Inmersiva</span>
-                    <div class="text-2xl md:text-3xl font-display font-bold text-brand-gold mt-1">360° Real</div>
-                    <p class="text-xs text-zinc-400 mt-0.5">Comprobación física de taladros, canteras y muelles.</p>
-                </div>
-                <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                    <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Jornadas en Terreno</span>
-                    <div class="text-2xl md:text-3xl font-display font-bold text-white mt-1">24 Días</div>
-                    <p class="text-xs text-zinc-400 mt-0.5">12 días cinematografía + 12 días captura 360°.</p>
-                </div>
-                <div>
-                    <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Portafolio Virtual</span>
-                    <div class="text-2xl md:text-3xl font-display font-bold text-white mt-1">PWA Táctica</div>
-                    <p class="text-xs text-zinc-400 mt-0.5">Herramienta lista para iPad y stands de negociación.</p>
-                </div>
-            </div>
-        </section>
+        </div>
+
     </main>
 
 
     <!-- ========================================================================= -->
-    <!-- VENTANA CASI TOTAL DE LA PANTALLA: REPRODUCTOR 360° NATIVO (start=228s) -->
+    <!-- VENTANA TOTAL: REPRODUCTOR DE CÁPSULA CINEMATOGRÁFICA DE REFERENCIA -->
+    <!-- ========================================================================= -->
+    <div id="capsuleModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden items-center justify-center p-3 md:p-6 transition-all duration-300">
+        <div class="relative w-full h-full max-w-[96vw] max-h-[92vh] bg-zinc-950 border border-brand-gold/50 rounded-3xl shadow-glow flex flex-col overflow-hidden">
+            
+            <!-- Barra superior del reproductor de cápsula -->
+            <div class="px-6 py-3.5 bg-black/90 border-b border-zinc-800 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xs">
+                        <i class="fa-solid fa-clapperboard"></i>
+                    </div>
+                    <div>
+                        <span id="capsuleModalTitle" class="text-xs font-display font-bold text-white uppercase tracking-wider block">Cápsula Cinematográfica de Referencia</span>
+                        <span class="text-[10px] font-mono text-brand-gold">Producción de Alto Nivel para Pantallas de Exposición & Redes</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-[10px] font-mono">
+                        <i class="fa-solid fa-film text-[9px]"></i>
+                        <span>Estándar Cinematográfico Oficial</span>
+                    </span>
+
+                    <button id="btnCloseCapsuleModal" class="px-3.5 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-brand-gold/50 text-zinc-300 hover:text-white text-xs font-mono flex items-center gap-1.5 transition-colors cursor-pointer">
+                        <i class="fa-solid fa-xmark text-xs"></i>
+                        <span>Cerrar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenedor del video con Iframe -->
+            <div class="relative flex-1 w-full bg-black">
+                <iframe id="capsulePlayerIframe" 
+                        class="w-full h-full border-0 pointer-events-auto" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- VENTANA TOTAL: REPRODUCTOR 360° NATIVO (start=228s) -->
     <!-- ========================================================================= -->
     <div id="vrModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden items-center justify-center p-3 md:p-6 transition-all duration-300">
         <div class="relative w-full h-full max-w-[96vw] max-h-[92vh] bg-zinc-950 border border-brand-gold/50 rounded-3xl shadow-glow flex flex-col overflow-hidden">
@@ -355,7 +566,6 @@
                         <span>Arrastre con el dedo o ratón para girar 360°</span>
                     </span>
 
-                    <!-- Fallback directo para abrir en la app de YouTube con giroscopio nativo de tablet -->
                     <a id="btnOpenNativeYt" href="https://www.youtube.com/watch?v=kWblVPHz-Vs&t=228s" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-brand-gold text-zinc-300 hover:text-white text-xs font-mono transition-colors">
                         <i class="fa-brands fa-youtube text-red-500"></i>
                         <span>Giroscopio App</span>
@@ -368,7 +578,7 @@
                 </div>
             </div>
 
-            <!-- Contenedor con Iframe optimizado con playsinline y permisos 360 -->
+            <!-- Iframe optimizado con playsinline y permisos 360 -->
             <div class="relative flex-1 w-full bg-black">
                 <iframe id="vrPlayerIframe" 
                         class="w-full h-full border-0 pointer-events-auto" 
@@ -390,22 +600,25 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <div class="flex items-center gap-3 mb-3">
-                <div id="detailCategoryBadge" class="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase bg-brand-gold/10 text-brand-gold border border-brand-gold/30">
-                    Línea Estratégica
+            <div class="flex items-center justify-between gap-3 mb-3 pr-8">
+                <div class="flex items-center gap-3">
+                    <div id="detailCategoryBadge" class="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase bg-brand-gold/10 text-brand-gold border border-brand-gold/30">
+                        Línea Estratégica
+                    </div>
+                    <span class="text-white text-xs font-mono font-bold" id="detailServiceCode">LN-01</span>
                 </div>
-                <span class="text-white text-xs font-mono font-bold" id="detailServiceCode">LN-01</span>
+                <span class="text-brand-gold font-mono font-bold text-sm bg-brand-gold/10 px-3 py-1 rounded-lg border border-brand-gold/30">USD 19.000</span>
             </div>
 
             <h3 id="detailTitle" class="text-2xl md:text-3xl font-display font-bold text-white mb-2">
                 Título de la Línea
             </h3>
 
-            <p id="detailDescription" class="text-zinc-300 text-xs md:text-sm leading-relaxed mb-6">
+            <p id="detailDescription" class="text-zinc-300 text-xs md:text-sm leading-relaxed mb-5">
                 Descripción detallada del área operativa.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                 <div class="bg-zinc-900/80 p-4 rounded-2xl border border-brand-gold/30">
                     <span class="text-[11px] font-mono text-brand-gold uppercase block mb-1 font-bold">
                         <i class="fa-solid fa-bullseye mr-1.5"></i> Dolor del Inversionista
@@ -421,17 +634,22 @@
                 </div>
             </div>
 
-            <div class="mb-6 flex-1 overflow-y-auto pr-1">
+            <!-- Entregables incluidos en los $19.000 -->
+            <div class="mb-5 flex-1 overflow-y-auto pr-1">
                 <span class="text-xs font-mono text-brand-gold uppercase tracking-wider block mb-2 font-bold">
-                    <i class="fa-solid fa-camera mr-1"></i> Despliegue de Producción (2 Días de Campo):
+                    <i class="fa-solid fa-box-open mr-1"></i> Paquete de Entregables Incluidos (USD 19.000):
                 </span>
                 <ul id="detailBullets" class="space-y-2 text-xs text-zinc-300"></ul>
             </div>
 
-            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-4">
+            <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
+                <button id="btnDetailOpenCapsule" class="flex-1 py-3 rounded-xl bg-zinc-900 border border-brand-gold/40 text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-play text-[10px]"></i>
+                    <span>Ver Cápsula Referencia</span>
+                </button>
                 <button id="btnDetailOpenVr" class="flex-1 py-3 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center justify-center gap-2 cursor-pointer shadow-glow">
                     <i class="fa-solid fa-vr-cardboard"></i>
-                    <span>Ver Demostración Inmersiva 360°</span>
+                    <span>Ver Recorrido 360°</span>
                 </button>
             </div>
         </div>
@@ -439,7 +657,7 @@
 
 
     <!-- ========================================================================= -->
-    <!-- MODAL LA WEB-APP COMO PORTAFOLIO VIRTUAL DE NEGOCIACIÓN -->
+    <!-- MODAL LA WEB-APP COMO PORTAFOLIO VIRTUAL ($6.000) -->
     <!-- ========================================================================= -->
     <div id="webAppModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="relative w-full max-w-2xl bg-zinc-950 border border-brand-border rounded-3xl p-6 md:p-8 shadow-2xl">
@@ -447,12 +665,16 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <div class="flex items-center gap-2 mb-2">
-                <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-6 w-auto object-contain">
-                <span class="text-xs font-mono text-brand-gold uppercase tracking-wider">Activo Digital Corporativo</span>
+            <div class="flex items-center justify-between mb-2 pr-8">
+                <div class="flex items-center gap-2">
+                    <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-6 w-auto object-contain">
+                    <span class="text-xs font-mono text-brand-gold uppercase tracking-wider">Activo Digital Corporativo</span>
+                </div>
+                <span class="text-brand-gold font-mono font-bold text-sm bg-brand-gold/10 px-3 py-1 rounded-lg border border-brand-gold/30">USD 6.000</span>
             </div>
-            <h3 class="text-2xl font-display font-bold text-white mb-2">La Web-App como Portafolio Virtual</h3>
-            <p class="text-xs text-zinc-400 mb-6">Herramienta permanente diseñada para exposiciones, cumbres internacionales y mesas bilaterales.</p>
+            
+            <h3 class="text-2xl font-display font-bold text-white mb-2">Web-App Portafolio Virtual B2B</h3>
+            <p class="text-xs text-zinc-400 mb-6">Herramienta táctica permanente para exposiciones, cumbres internacionales y mesas bilaterales.</p>
 
             <div class="space-y-4 mb-6 text-xs text-zinc-300">
                 <div class="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800">
@@ -461,7 +683,7 @@
                         Optimización PWA para Tablets & iPad en Mano
                     </h4>
                     <p class="text-zinc-400 leading-relaxed">
-                        Funciona fluidamente en reuniones ejecutivas sin requerir descargas de tiendas de aplicaciones. Se instala como acceso directo en el dispositivo y puede proyectarse en pantallas 4K durante foros internacionales.
+                        Funciona fluidamente en reuniones ejecutivas sin requerir descargas en App Store ni Play Store. Se instala como acceso directo en el dispositivo y se proyecta en pantallas de stands en ferias internacionales.
                     </p>
                 </div>
 
@@ -471,7 +693,7 @@
                         Entrega Inmediata a Delegaciones Extranjeras vía QR
                     </h4>
                     <p class="text-zinc-400 leading-relaxed">
-                        Al finalizar la reunión bilateral, la delegación inversora escanea un código QR y se lleva consigo la plataforma interactiva con todas las fichas técnicas, videos y recorridos 360°.
+                        Al concluir la reunión bilateral, los inversionistas escanean el código QR institucional y se llevan la aplicación completa con todas las fichas técnicas, videos y recorridos 360° en sus dispositivos móviles.
                     </p>
                 </div>
 
@@ -486,96 +708,9 @@
                 </div>
             </div>
 
-            <button onclick="document.getElementById('btnCloseWebAppModal').click(); document.getElementById('btnOpenEcosystemModal').click();" class="w-full py-3 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-glow cursor-pointer">
-                Ver Presupuesto del Ecosistema ($62.800)
+            <button onclick="document.getElementById('btnCloseWebAppModal').click(); switchToEconomicsTab();" class="w-full py-3.5 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-glow cursor-pointer">
+                Ver Presupuesto en Pestaña Económica
             </button>
-        </div>
-    </div>
-
-
-    <!-- ========================================================================= -->
-    <!-- MODAL ECOSISTEMA INTEGRAL ($62.800) -->
-    <!-- ========================================================================= -->
-    <div id="ecosystemModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-        <div class="relative w-full max-w-3xl bg-zinc-950 border border-brand-border rounded-3xl p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[92vh]">
-            <button id="btnCloseEcosystemModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center cursor-pointer">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-3 mb-2">
-                <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-6 w-auto object-contain">
-                <span class="text-xs font-mono uppercase text-brand-gold tracking-wider">Propuesta Técnica & Económica Integral</span>
-            </div>
-            <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Ecosistema Inmersivo & Audiovisual</h3>
-            <p class="text-xs text-zinc-400 mb-6">Herramienta de persuasión y negociación de última generación para la directiva de CAMIMPEG.</p>
-
-            <!-- Desglose de los 3 Pilares -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div class="bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800 flex flex-col justify-between">
-                    <div>
-                        <div class="w-8 h-8 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-3 text-sm">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h4 class="font-display font-bold text-white text-sm mb-1">Web-App Portafolio</h4>
-                        <p class="text-[11px] text-zinc-400 leading-relaxed">
-                            Plataforma PWA táctica instalable en iPad/tablets, con módulos de capacidad operativa y conmutación ágil a video e inmersión.
-                        </p>
-                    </div>
-                    <span class="text-[10px] font-mono text-zinc-500 uppercase mt-3">Herramienta Permanente</span>
-                </div>
-
-                <div class="bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800 flex flex-col justify-between">
-                    <div>
-                        <div class="w-8 h-8 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-3 text-sm">
-                            <i class="fa-solid fa-clapperboard"></i>
-                        </div>
-                        <h4 class="font-display font-bold text-white text-sm mb-1">Cinematografía</h4>
-                        <p class="text-[11px] text-zinc-400 leading-relaxed">
-                            12 días de rodaje en campo (2 días por línea). Cobertura aerovisual y terrestre. Master Oficial (3-5 min) + 6 cápsulas de línea.
-                        </p>
-                    </div>
-                    <span class="text-[10px] font-mono text-zinc-500 uppercase mt-3">12 Días en Locación</span>
-                </div>
-
-                <div class="bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800 flex flex-col justify-between">
-                    <div>
-                        <div class="w-8 h-8 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-3 text-sm">
-                            <i class="fa-solid fa-vr-cardboard"></i>
-                        </div>
-                        <h4 class="font-display font-bold text-white text-sm mb-1">Recorridos 360°</h4>
-                        <p class="text-[11px] text-zinc-400 leading-relaxed">
-                            12 días de captura equirrectangular especializada. Cosido óptico y recorrido interactivo con puntos técnicos para pantallas táctiles.
-                        </p>
-                    </div>
-                    <span class="text-[10px] font-mono text-zinc-500 uppercase mt-3">12 Días Captura 360°</span>
-                </div>
-            </div>
-
-            <!-- Marco de Inversión Cerrada -->
-            <div class="rounded-2xl bg-gradient-to-b from-zinc-900 to-black border border-brand-gold/40 p-5 mb-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
-                    <div>
-                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest block">Inversión Total del Proyecto</span>
-                        <span class="text-3xl font-display font-extrabold text-white">USD 62.800</span>
-                    </div>
-                    <div class="text-left sm:text-right">
-                        <span class="text-xs font-mono text-brand-gold block font-semibold">Esquema de Pago por Hitos:</span>
-                        <span class="text-xs text-zinc-300 font-mono">50% Anticipo · 30% Jornadas de Campo · 20% Entrega Final</span>
-                    </div>
-                </div>
-                <p class="text-[11px] text-zinc-400 mt-3 leading-relaxed">
-                    <strong class="text-zinc-300">Nota Logística:</strong> Los traslados interurbanos, alimentación, hospedaje del equipo de filmación y autorizaciones de seguridad militar/industrial a instalaciones son coordinados directamente con la empresa anfitriona.
-                </p>
-            </div>
-
-            <div class="flex items-center justify-end gap-3">
-                <button onclick="document.getElementById('btnCloseEcosystemModal').click()" class="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white text-xs font-mono transition-colors cursor-pointer">
-                    Cerrar Dossier
-                </button>
-                <button onclick="document.getElementById('btnCloseEcosystemModal').click(); document.getElementById('btnOpenInquiryModal').click();" class="px-6 py-2.5 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-glow cursor-pointer">
-                    Contactar Mesa de Proyectos
-                </button>
-            </div>
         </div>
     </div>
 
@@ -607,14 +742,16 @@
                         <input required type="text" id="inputName" placeholder="Nombre completo" class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
                     </div>
                     <div>
-                        <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Línea de Interés</label>
+                        <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Modalidad de Interés</label>
                         <select id="inputSector" class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-gold">
-                            <option value="LN-01 Hidrocarburos">LN-01 Hidrocarburos</option>
-                            <option value="LN-02 Minería">LN-02 Minería</option>
-                            <option value="LN-03 Seguridad Integral">LN-03 Seguridad Integral</option>
-                            <option value="LN-04 Transporte Guanta">LN-04 Transporte Guanta</option>
-                            <option value="LN-05 Comercialización">LN-05 Comercialización</option>
-                            <option value="LN-06 Aduana Exterior">LN-06 Aduana Exterior</option>
+                            <option value="Paquete Completo (108.000 USD)">Paquete Completo (108.000 USD)</option>
+                            <option value="LN-01 Hidrocarburos (19.000 USD)">LN-01 Hidrocarburos (19.000 USD)</option>
+                            <option value="LN-02 Minería (19.000 USD)">LN-02 Minería (19.000 USD)</option>
+                            <option value="LN-03 Seguridad Integral (19.000 USD)">LN-03 Seguridad Integral (19.000 USD)</option>
+                            <option value="LN-04 Transporte Guanta (19.000 USD)">LN-04 Transporte Guanta (19.000 USD)</option>
+                            <option value="LN-05 Comercialización (19.000 USD)">LN-05 Comercialización (19.000 USD)</option>
+                            <option value="LN-06 Aduana Exterior (19.000 USD)">LN-06 Aduana Exterior (19.000 USD)</option>
+                            <option value="Web-App Portafolio (6.000 USD)">Web-App Portafolio (6.000 USD)</option>
                         </select>
                     </div>
                 </div>
@@ -633,31 +770,34 @@
 
 
     <!-- ========================================================================= -->
-    <!-- JAVASCRIPT COMPLETO Y ROBUSTO -->
+    <!-- JAVASCRIPT COMPLETO CON CONTROL DE PESTAÑAS, CÁPSULAS Y 360° -->
     <!-- ========================================================================= -->
     <script>
         const MEDIA_CONFIG = {
             masterVideoId: "jX4x6mT5nnM",
             vrVideoId: "kWblVPHz-Vs",
-            vrStartTime: 228 // Inicia en 00:03:48 (228 segundos)
+            vrStartTime: 228 // 00:03:48
         };
 
-        // LAS 6 LÍNEAS ESTRATÉGICAS CON TODA SU INFORMACIÓN RECUPERADA
+        // LAS 6 LÍNEAS ESTRATÉGICAS CON EL PAQUETE ESPECÍFICO DE USD 19.000
         const strategicLinesData = [
             {
                 id: 1,
                 code: "LN-01",
                 category: "hidrocarburos",
-                categoryLabel: "Hidrocarburos",
+                categoryLabel: "Hidrocarburos & Gas",
                 title: "Pozos Activos, Flujo & Compresión de Gas",
                 description: "Cobertura de estaciones de flujo, pozos productores y plantas de inyección de gas en cuencas de oriente y occidente con custodia directa.",
                 icon: "fa-oil-well",
+                price: "USD 19.000",
                 painPoint: "El inversionista internacional teme encontrar pozos paralizados, infraestructura desmantelada o demoras en el despacho de crudo y gas.",
                 pitchProof: "El recorrido inmersivo 360° y las cápsulas cinematográficas le permiten pararse virtualmente frente al taladro activo, verificar presiones en manómetros y constatar el flujo ininterrumpido.",
                 bullets: [
-                    "2 días de rodaje y cinematografía aérea sobre estaciones de flujo y macollas activas.",
-                    "Captura inmersiva 360° en plataformas de perforación y plantas compresoras.",
-                    "Entregable: Cápsula táctica de alta definición + Recorrido inmersivo con puntos técnicos."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° de plataformas y plantas compresoras activas."
                 ]
             },
             {
@@ -668,12 +808,15 @@
                 title: "Canteras, Perforación & Centros Mineros",
                 description: "Operaciones de extracción, beneficio y logística para oro, bauxita, carbón y minerales industriales bajo marco soberano transparente.",
                 icon: "fa-gem",
+                price: "USD 19.000",
                 painPoint: "Dudas sobre la seguridad territorial, títulos de concesión y el estado real de la maquinaria pesada en los frentes de extracción.",
                 pitchProof: "Demuestra la soberanía sobre el polígono minero, la actividad de retroexcavadoras de alto tonelaje y las plantas de beneficio eco-amigables en funcionamiento real.",
                 bullets: [
-                    "2 días de rodaje en frentes mineros activos y plantas de beneficio.",
-                    "Captura equirrectangular 360° en patios de maniobra y laboratorios de ley mineral.",
-                    "Entregable: Cápsula ejecutiva minera + Nube inmersiva de validación técnica."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° en patios de maniobra y laboratorios de ley mineral."
                 ]
             },
             {
@@ -684,12 +827,15 @@
                 title: "Blindaje de Infraestructuras Críticas",
                 description: "Despliegue táctico, vigilancia perimetral especializada y salas de control para salvaguardar activos energéticos y mineros de alta envergadura.",
                 icon: "fa-shield-halved",
+                price: "USD 19.000",
                 painPoint: "El temor a sabotajes, robos de insumos o paradas no programadas por conflictividad en las zonas de extracción.",
                 pitchProof: "Proyecta la capacidad de respuesta militar orgánica, control antidrón y custodia de oleoductos, disipando cualquier preocupación de seguridad patrimonial.",
                 bullets: [
-                    "2 días de despliegue audiovisual en salas de mando C2 y patrullaje táctico perimetral.",
-                    "Captura 360° interactiva de las zonas seguras de trabajo (ZST) para personal extranjero.",
-                    "Entregable: Cápsula de seguridad estratégica + Recorrido interactivo de resguardo."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° de zonas seguras de trabajo (ZST) y salas C2."
                 ]
             },
             {
@@ -700,12 +846,15 @@
                 title: "Terminal Portuario de Guanta & Logística Fluvial",
                 description: "Operaciones en muelles de aguas profundas en Guanta, maniobras de remolcadores, gabarras en el eje Orinoco y transferencia de carga pesada RO-RO.",
                 icon: "fa-ship",
+                price: "USD 19.000",
                 painPoint: "Sobrecostos por atascos logísticos en muelles, demoras de buques tanqueros y falta de capacidad para cargas pesadas.",
                 pitchProof: "Permite al cliente recorrer el muelle de Guanta en 360°, ver el calado natural de atraque, las grúas de gran capacidad y las maniobras de atraque seguras.",
                 bullets: [
-                    "2 días de rodaje marítimo, fluvial y aerovisual en el Terminal Portuario de Guanta.",
-                    "Captura inmersiva 360° en puentes de mando de remolcadores y patios de transferencia RO-RO.",
-                    "Entregable: Cápsula táctica portuaria + Módulo inmersivo de atraque y calado."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° de muelles de Guanta, remolcadores y patios RO-RO."
                 ]
             },
             {
@@ -716,12 +865,15 @@
                 title: "Distribución Masiva de Urea, Cemento & Insumos",
                 description: "Canales mayoristas de suministro y despacho de urea, clínker, cemento y derivados químicos para mercados agrícolas y de construcción a gran escala.",
                 icon: "fa-cubes-stacked",
+                price: "USD 19.000",
                 painPoint: "Miedo a la intermediación ficticia y a la falta de inventario físico disponible en las plantas nacionales.",
                 pitchProof: "Valida los silos de almacenamiento, el embolsado automatizado y los convoyes de carga saliendo en tiempo y forma hacia su destino.",
                 bullets: [
-                    "2 días de rodaje en plantas de almacenaje, ensacado y despacho mayorista.",
-                    "Captura 360° en naves industriales y estaciones de carga a granel.",
-                    "Entregable: Cápsula de comercialización + Validación inmersiva de stock en sitio."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° de centros de almacenamiento y ensacado mayorista."
                 ]
             },
             {
@@ -732,12 +884,15 @@
                 title: "Agenciamiento Naviero, Patios & Despacho Fiscal",
                 description: "Servicios integrales de agenciamiento aduanal, patios fiscales bajo resguardo y trámites expeditos para importación de bienes de capital y exportaciones.",
                 icon: "fa-warehouse",
+                price: "USD 19.000",
                 painPoint: "Mercancías críticas y repuestos de perforación retenidos semanas en aduana con altos costos y penalizaciones.",
                 pitchProof: "Evidencia la agilidad de los patios fiscales custodiados por CAMIMPEG, reduciendo a la mitad los tiempos de nacionalización para proyectos mixtos.",
                 bullets: [
-                    "2 días de registro audiovisual en patios fiscales y áreas de despacho aduanal.",
-                    "Captura 360° de los sistemas de escaneo y resguardo perimetral de contenedores.",
-                    "Entregable: Cápsula de comercio exterior + Recorrido de agenciamiento y despacho."
+                    "3 Cápsulas de 30 segundos (formato vertical 9:16) para pantallas de exposiciones, Reels y TikTok.",
+                    "Paquete de Historias de promoción de alto impacto para redes sociales corporativas.",
+                    "1 Microdocumental cinematográfico de la línea (formato horizontal 16:9).",
+                    "Paquete de fotografías industriales en alta resolución para catálogos y vallas.",
+                    "Recorrido inmersivo 360° de patios de resguardo aduanal y escáneres fiscales."
                 ]
             }
         ];
@@ -756,6 +911,57 @@
         const countAll = document.getElementById('countAll');
         const emptyState = document.getElementById('emptyState');
 
+        // Pestañas Principales
+        const navTabLines = document.getElementById('navTabLines');
+        const navTabEconomics = document.getElementById('navTabEconomics');
+        const viewLinesSection = document.getElementById('viewLinesSection');
+        const viewEconomicsSection = document.getElementById('viewEconomicsSection');
+
+        function switchToLinesTab() {
+            viewEconomicsSection.classList.add('hidden');
+            viewLinesSection.classList.remove('hidden');
+
+            navTabLines.className = "px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-white text-black shadow-glow flex items-center gap-1.5 cursor-pointer";
+            navTabEconomics.className = "px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-brand-gold/60 hover:text-white flex items-center gap-1.5 cursor-pointer";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchToEconomicsTab() {
+            viewLinesSection.classList.add('hidden');
+            viewEconomicsSection.classList.remove('hidden');
+
+            navTabEconomics.className = "px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-white text-black shadow-glow flex items-center gap-1.5 cursor-pointer";
+            navTabLines.className = "px-4 py-2 rounded-xl text-xs font-display font-bold tracking-wider uppercase transition-all bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-brand-gold/60 hover:text-white flex items-center gap-1.5 cursor-pointer";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navTabLines.addEventListener('click', switchToLinesTab);
+        navTabEconomics.addEventListener('click', switchToEconomicsTab);
+
+        // Modal Cápsula Cinematográfica
+        const capsuleModal = document.getElementById('capsuleModal');
+        const capsulePlayerIframe = document.getElementById('capsulePlayerIframe');
+        const btnCloseCapsuleModal = document.getElementById('btnCloseCapsuleModal');
+        const capsuleModalTitle = document.getElementById('capsuleModalTitle');
+
+        function openCapsuleExperience(title) {
+            capsuleModalTitle.textContent = title ? `Cápsula: ${title}` : "Cápsula Cinematográfica de Referencia";
+            capsulePlayerIframe.src = `https://www.youtube.com/embed/${MEDIA_CONFIG.masterVideoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
+            capsuleModal.classList.remove('hidden');
+            capsuleModal.classList.add('flex');
+        }
+
+        function closeCapsuleExperience() {
+            capsulePlayerIframe.src = "";
+            capsuleModal.classList.add('hidden');
+            capsuleModal.classList.remove('flex');
+        }
+
+        btnCloseCapsuleModal.addEventListener('click', closeCapsuleExperience);
+        capsuleModal.addEventListener('click', (e) => {
+            if (e.target === capsuleModal) closeCapsuleExperience();
+        });
+
         // Modal 360°
         const vrModal = document.getElementById('vrModal');
         const vrPlayerIframe = document.getElementById('vrPlayerIframe');
@@ -763,19 +969,16 @@
         const btnHeroOpenVr = document.getElementById('btnHeroOpenVr');
         const btnNavOpenVr = document.getElementById('btnNavOpenVr');
         const btnDetailOpenVr = document.getElementById('btnDetailOpenVr');
+        const btnDetailOpenCapsule = document.getElementById('btnDetailOpenCapsule');
 
-        // FUNCIÓN QUE ABRE EL REPRODUCTOR 360° CON PLAYSINLINE Y ARRANQUE EN SEGUNDO 228
         function launchVrExperience() {
-            // playsinline=1 evita que iOS/Android use el reproductor nativo plano y permite el WebGL 360 de YouTube
-            const vrEmbedUrl = `https://www.youtube.com/embed/${MEDIA_CONFIG.vrVideoId}?autoplay=1&start=${MEDIA_CONFIG.vrStartTime}&playsinline=1&rel=0&enablejsapi=1&modestbranding=1`;
-            vrPlayerIframe.src = vrEmbedUrl;
-
+            vrPlayerIframe.src = `https://www.youtube.com/embed/${MEDIA_CONFIG.vrVideoId}?autoplay=1&start=${MEDIA_CONFIG.vrStartTime}&playsinline=1&rel=0&enablejsapi=1&modestbranding=1`;
             vrModal.classList.remove('hidden');
             vrModal.classList.add('flex');
         }
 
         function closeVrExperience() {
-            vrPlayerIframe.src = ""; // Detiene la reproducción
+            vrPlayerIframe.src = "";
             vrModal.classList.add('hidden');
             vrModal.classList.remove('flex');
         }
@@ -786,6 +989,12 @@
             document.getElementById('serviceDetailModal').classList.add('hidden');
             document.getElementById('serviceDetailModal').classList.remove('flex');
             launchVrExperience();
+        });
+        btnDetailOpenCapsule.addEventListener('click', () => {
+            const currentTitle = document.getElementById('detailTitle').textContent;
+            document.getElementById('serviceDetailModal').classList.add('hidden');
+            document.getElementById('serviceDetailModal').classList.remove('flex');
+            openCapsuleExperience(currentTitle);
         });
         btnCloseVrModal.addEventListener('click', closeVrExperience);
         vrModal.addEventListener('click', (e) => {
@@ -804,7 +1013,7 @@
         window.addEventListener('orientationchange', checkOrientation);
         checkOrientation();
 
-        // Reproductor de Video Master
+        // Reproductor de Video Master en Hero
         document.getElementById('btnStartPresentation').addEventListener('click', () => {
             ytPlayerIframe.src = `https://www.youtube.com/embed/${MEDIA_CONFIG.masterVideoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&enablejsapi=1`;
             splashLayer.classList.add('opacity-0', 'pointer-events-none');
@@ -848,7 +1057,7 @@
             else document.exitFullscreen().catch(() => {});
         });
 
-        // Renderizado Dinámico de las Tarjetas
+        // Renderizado Dinámico de las Tarjetas con Cápsula y Precio
         function renderServices() {
             countAll.textContent = strategicLinesData.length;
             const searchTerm = searchInput.value.toLowerCase().trim();
@@ -877,7 +1086,10 @@
                                 <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase px-2.5 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/30">
                                     ${service.categoryLabel}
                                 </span>
-                                <span class="text-white font-mono text-xs font-bold">${service.code}</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-white font-mono text-xs font-bold">${service.code}</span>
+                                    <span class="text-brand-gold font-mono text-xs font-bold px-2 py-0.5 rounded bg-brand-gold/10 border border-brand-gold/20">${service.price}</span>
+                                </div>
                             </div>
 
                             <div class="flex items-start gap-3.5 mb-3">
@@ -893,24 +1105,42 @@
                                 ${service.description}
                             </p>
 
-                            <div class="p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/80 mb-4">
-                                <span class="text-[10px] font-mono uppercase text-brand-gold block font-semibold mb-0.5">
-                                    <i class="fa-solid fa-check text-[9px] mr-1"></i> Certeza para el Inversor:
-                                </span>
-                                <p class="text-[11px] text-zinc-300 line-clamp-2">
-                                    ${service.pitchProof}
-                                </p>
+                            <!-- Entregables del Paquete de Línea -->
+                            <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 mb-4 space-y-1.5 text-[11px] text-zinc-300 font-mono">
+                                <div class="flex items-center gap-2 text-white font-bold text-[10px] uppercase text-brand-gold">
+                                    <i class="fa-solid fa-clapperboard"></i> Producción Cinematográfica Incluida:
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-mobile text-brand-gold text-[10px]"></i>
+                                    <span>3 Cápsulas 30s (Vertical 9:16) + Historias</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-film text-brand-gold text-[10px]"></i>
+                                    <span>1 Microdocumental de la Línea (16:9)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-camera text-brand-gold text-[10px]"></i>
+                                    <span>Paquete Fotográfico Industrial HD</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-zinc-900 flex items-center justify-between gap-2">
-                            <button onclick="launchVrExperience()" class="px-3 py-1.5 rounded-xl bg-brand-gold/10 hover:bg-brand-gold hover:text-black border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 cursor-pointer">
-                                <i class="fa-solid fa-vr-cardboard text-[11px]"></i>
-                                <span>Ver 360°</span>
-                            </button>
-                            <button onclick="openDetailModal(${service.id})" class="px-3.5 py-1.5 rounded-xl bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-200 text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 cursor-pointer">
-                                <span>Plan de Venta</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        <!-- Botones de Acción de la Tarjeta -->
+                        <div class="pt-4 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="openCapsuleExperience('${service.title}')" class="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-200 text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 cursor-pointer" title="Ver Cápsula de Referencia">
+                                    <i class="fa-solid fa-play text-[9px] text-brand-gold"></i>
+                                    <span>Cápsula</span>
+                                </button>
+                                <button onclick="launchVrExperience()" class="px-3 py-1.5 rounded-xl bg-brand-gold/10 hover:bg-brand-gold hover:text-black border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 cursor-pointer" title="Ver Demostración 360°">
+                                    <i class="fa-solid fa-vr-cardboard text-[11px]"></i>
+                                    <span>360°</span>
+                                </button>
+                            </div>
+
+                            <button onclick="openDetailModal(${service.id})" class="px-3 py-1.5 rounded-xl bg-zinc-900 hover:border-brand-gold border border-zinc-800 text-zinc-300 hover:text-white text-xs font-mono transition-all flex items-center gap-1 cursor-pointer">
+                                <span>Detalles</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                             </button>
                         </div>
                     `;
@@ -937,7 +1167,6 @@
 
         // Modales
         const serviceDetailModal = document.getElementById('serviceDetailModal');
-        const ecosystemModal = document.getElementById('ecosystemModal');
         const inquiryModal = document.getElementById('inquiryModal');
         const webAppModal = document.getElementById('webAppModal');
 
@@ -980,16 +1209,6 @@
             webAppModal.classList.remove('flex');
         });
 
-        // Modal Ecosistema ($62.8K)
-        document.getElementById('btnOpenEcosystemModal').addEventListener('click', () => {
-            ecosystemModal.classList.remove('hidden');
-            ecosystemModal.classList.add('flex');
-        });
-        document.getElementById('btnCloseEcosystemModal').addEventListener('click', () => {
-            ecosystemModal.classList.add('hidden');
-            ecosystemModal.classList.remove('flex');
-        });
-
         // Modal Contacto
         document.getElementById('btnOpenInquiryModal').addEventListener('click', () => {
             inquiryModal.classList.remove('hidden');
@@ -1010,7 +1229,7 @@
         });
 
         // Cerrar modales tocando el fondo exterior
-        [serviceDetailModal, ecosystemModal, inquiryModal, webAppModal].forEach(modal => {
+        [serviceDetailModal, inquiryModal, webAppModal].forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.add('hidden');
