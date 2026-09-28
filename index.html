@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CAMIMPEG | Propuesta Estratégica de Relanzamiento Internacional & Ecosistema de Validación Inmersiva</title>
+    <title>CAMIMPEG | Plataforma Ejecutiva</title>
     
-    <!-- Framework Tailwind CSS CDN -->
+    <!-- Framework Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tipografías ejecutivas: Space Grotesk e Inter -->
+    <!-- Tipografías de alta gama -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconografía Font Awesome 6 CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
@@ -27,16 +25,10 @@
                     colors: {
                         brand: {
                             gold: '#D4AF37',
-                            'gold-light': '#F6E7B0',
-                            charcoal: '#0C0D0E',
-                            card: '#121417',
-                            border: '#23262B',
-                            accent: '#C5A059'
+                            'gold-light': '#F5E6B3',
+                            surface: '#0A0B0D',
+                            border: '#1E2024'
                         }
-                    },
-                    boxShadow: {
-                        'glow': '0 0 35px -5px rgba(212, 175, 55, 0.35)',
-                        'glow-subtle': '0 0 20px -3px rgba(212, 175, 55, 0.15)'
                     }
                 }
             }
@@ -44,970 +36,417 @@
     </script>
 
     <style>
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #262930; border-radius: 9999px; }
+        .glass { background: rgba(10, 11, 13, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .touch-app { -webkit-touch-callout: none; user-select: none; }
+        @keyframes rotate-landscape {
+            0%, 25% { transform: rotate(0deg); }
+            75%, 100% { transform: rotate(-90deg); }
         }
-        ::-webkit-scrollbar-track {
-            background: #090A0C;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #23262B;
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
-        }
-        
-        .glass-panel {
-            background: rgba(14, 16, 20, 0.85);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .touch-app {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.15); opacity: 0.3; }
-            100% { transform: scale(0.95); opacity: 0.8; }
-        }
-        .animate-ring {
-            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        /* ========================================================================= */
-        /* CALIBRACIÓN HORIZONTAL: PANTALLA INTELIGENTE DE ROTACIÓN OBLIGATORIA */
-        /* ========================================================================= */
-        @keyframes rotate-tablet {
-            0%, 15% {
-                transform: rotate(0deg) scale(1);
-            }
-            45%, 70% {
-                transform: rotate(-90deg) scale(1.06);
-            }
-            90%, 100% {
-                transform: rotate(0deg) scale(1);
-            }
-        }
-
-        @keyframes scan-radar {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .animate-device-rotation {
-            animation: rotate-tablet 3.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-        }
-
-        .animate-radar-sweep {
-            animation: scan-radar 7s linear infinite;
-        }
-
-        .grid-tech-pattern {
-            background-image: 
-                radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px),
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 32px 32px, 64px 64px, 64px 64px;
-        }
-
-        /* Bloqueo estricto por CSS para dispositivos en formato vertical */
-        @media screen and (orientation: portrait) {
-            #orientationGate {
-                display: flex !important;
-                opacity: 1 !important;
-                pointer-events: auto !important;
-            }
-        }
-
-        /* Ocultamiento inmediato en formato horizontal */
-        @media screen and (orientation: landscape) {
-            #orientationGate:not(.force-visible) {
-                display: none !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-            }
-        }
+        .animate-rotate { animation: rotate-landscape 3s ease-in-out infinite alternate; }
     </style>
 </head>
 
 <body class="h-full bg-black text-white font-sans overflow-x-hidden touch-app selection:bg-brand-gold selection:text-black">
 
     <!-- ========================================================================= -->
-    <!-- ANTESALA OBLIGATORIA: COMPUERTA DE ROTACIÓN A PANTALLA HORIZONTAL -->
+    <!-- BLOQUEO GIRO HORIZONTAL (Minimalista) -->
     <!-- ========================================================================= -->
-    <aside id="orientationGate" class="fixed inset-0 z-[100] hidden flex-col items-center justify-between p-6 sm:p-10 bg-black text-white grid-tech-pattern backdrop-blur-2xl transition-all duration-500">
-        
-        <!-- Elemento de fondo: Brillo radial institucional -->
-        <div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.14)_0%,rgba(0,0,0,0.95)_75%)] pointer-events-none"></div>
-
-        <!-- Encabezado de la compuerta -->
-        <div class="relative z-10 w-full flex items-center justify-between">
-            <div class="flex items-center space-x-2.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-                <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-brand-gold font-semibold">
-                    PROTOCOLO DE VISUALIZACIÓN EJECUTIVA
-                </span>
-            </div>
-            <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-zinc-400">
-                RATIO 16:9 • MODO CINEMA
-            </div>
+    <div id="orientationGate" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-6 text-center hidden">
+        <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-10 mb-8 opacity-80">
+        <div class="w-16 h-28 border-2 border-brand-gold/80 rounded-xl mb-6 flex items-center justify-center animate-rotate shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+            <i class="fa-solid fa-arrow-rotate-right text-brand-gold text-sm"></i>
         </div>
-
-        <!-- Centro visual: Dispositivo 3D animado y sensor de rotación -->
-        <div class="relative z-10 flex flex-col items-center justify-center my-auto max-w-md text-center">
-            
-            <!-- Anillo giroscópico con barrido de radar -->
-            <div class="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center mb-8">
-                
-                <!-- Circunferencia externa de telemetría -->
-                <div class="absolute inset-0 rounded-full border border-dashed border-brand-gold/30"></div>
-                <div class="absolute inset-2 rounded-full border border-white/10"></div>
-                <div class="absolute inset-0 rounded-full border-t border-brand-gold animate-radar-sweep opacity-75"></div>
-
-                <!-- Gráfico de Dispositivo iPad / Smartphone Rotando 90° -->
-                <div class="relative z-10 w-28 h-44 sm:w-32 sm:h-48 rounded-2xl bg-zinc-950 border-2 border-brand-gold shadow-[0_0_35px_rgba(212,175,55,0.3)] animate-device-rotation flex flex-col items-center justify-between p-2.5 transition-transform duration-500">
-                    
-                    <!-- Parlante / cámara superior -->
-                    <div class="w-8 h-1 rounded-full bg-zinc-700"></div>
-
-                    <!-- Pantalla interna con simulación de video panorámico -->
-                    <div class="w-full h-28 sm:h-32 rounded-lg bg-gradient-to-tr from-zinc-900 via-brand-card to-black border border-brand-gold/30 flex flex-col items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:8px_8px]"></div>
-                        <i class="fa-solid fa-play text-brand-gold text-base sm:text-lg mb-1 drop-shadow"></i>
-                        <span class="text-[8px] font-mono text-zinc-400 uppercase tracking-widest">16:9 Cinema</span>
-                    </div>
-
-                    <!-- Botón Home o barra táctil inferior -->
-                    <div class="w-10 h-1 rounded-full bg-brand-gold/50"></div>
-                </div>
-
-                <!-- Flechas curvadas de indicación de rotación continua -->
-                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/90 border border-brand-gold/60 text-brand-gold text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-glow">
-                    <i class="fa-solid fa-rotate-left"></i>
-                    <span>Rotar a Horizontal</span>
-                </div>
-            </div>
-
-            <!-- Título y argumentario ejecutivo -->
-            <h2 class="text-2xl sm:text-3xl font-display font-black text-white uppercase tracking-tight mb-3">
-                Gire su Dispositivo <br>
-                <span class="bg-gradient-to-r from-brand-gold-light via-brand-gold to-amber-500 bg-clip-text text-transparent">
-                    A Posición Horizontal
-                </span>
-            </h2>
-
-            <p class="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed mb-6">
-                Para apreciar la escala cinematográfica del <strong>Master Reel</strong> y la realidad operativa de las <strong>6 Líneas Estratégicas de CAMIMPEG</strong> en formato inmersivo 360°, se requiere el uso en formato panorámico apaisado.
-            </p>
-
-            <!-- Sensor de estado de orientación en tiempo real -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-xs font-mono">
-                <span id="orientationDot" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-                <span id="orientationStatusText" class="text-zinc-300">Orientación actual: <strong>VERTICAL</strong> (Rotación requerida)</span>
-            </div>
-
-            <!-- Botón de asistencia para forzar fullscreen / landscape en navegadores compatibles -->
-            <button id="btnForceLandscape" class="mt-4 text-[11px] font-mono text-zinc-400 hover:text-brand-gold underline underline-offset-4 transition-colors cursor-pointer">
-                ¿Está en ordenador o desea calibrar manualmente? Haga clic aquí
-            </button>
-        </div>
-
-        <!-- Pie de la compuerta -->
-        <div class="relative z-10 w-full flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono text-zinc-500 gap-2">
-            <span>HOMOLOGACIÓN MULTIDISPOSITIVO • IPAD PRO, TABLETS & SMARTPHONES</span>
-            <span class="text-zinc-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-shield-halved text-brand-gold"></i>
-                Estándar Global de Negociación B2B
-            </span>
-        </div>
-    </aside>
-
-    <div id="appContainer" class="relative w-full h-full min-h-screen bg-black flex flex-col">
-
-        <!-- ========================================================================= -->
-        <!-- PANTALLA 1: ANTESALA CON GIF ANIMADO + MASTER REEL FULLSCREEN -->
-        <!-- ========================================================================= -->
-        <section id="heroScreen" class="fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-black transition-opacity duration-700">
-            
-            <!-- CAPA 1: ANTESALA CON GIF ANIMADO (Carga inmediata en bucle continuo) -->
-            <div id="splashLayer" class="absolute inset-0 z-10 flex flex-col justify-between transition-opacity duration-700">
-                
-                <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                    <img id="gifImageElement" 
-                         src="https://media.giphy.com/media/GNeBk59rTEsnKpFPDe/giphy.gif" 
-                         onerror="this.src='https://i.giphy.com/GNeBk59rTEsnKpFPDe.gif'"
-                         alt="CAMIMPEG Relanzamiento Internacional" 
-                         class="w-full h-full object-cover scale-105 filter brightness-[0.70] contrast-[1.15] transition-transform duration-1000">
-                </div>
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/85 z-0 pointer-events-none"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.85)_100%)] z-0 pointer-events-none"></div>
-
-                <!-- Barra superior de la antesala -->
-                <header class="relative z-10 w-full px-6 md:px-10 py-6 flex items-center justify-between">
-                    <div class="flex items-center space-x-3.5">
-                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-brand-gold/40 flex items-center justify-center p-2.5 shadow-glow">
-                            <i class="fa-solid fa-crown text-brand-gold text-2xl"></i>
-                        </div>
-                        <div>
-                            <span class="font-display font-bold tracking-widest text-lg md:text-xl text-white block">RELANZAMIENTO DE MARCA CAMIMPEG</span>
-                            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-medium">Propuesta de Consultoría Estratégica & Ecosistema de Validación Inmersiva</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold-light text-xs font-mono">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ring"></span>
-                            ESTÁNDAR GLOBAL DE INNOVACIÓN
-                        </span>
-                        <button id="toggleFullscreenBtn" title="Pantalla Completa" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-brand-gold/50 flex items-center justify-center text-zinc-300 transition-colors">
-                            <i class="fa-solid fa-expand text-sm"></i>
-                        </button>
-                    </div>
-                </header>
-
-                <!-- Bloque central de apertura estratégica -->
-                <div class="relative z-10 max-w-4xl mx-auto px-6 text-center my-auto flex flex-col items-center">
-                    <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full glass-panel text-zinc-300 text-xs tracking-widest uppercase font-semibold border border-white/10">
-                        <i class="fa-solid fa-microchip text-brand-gold text-xs"></i>
-                        Ecosistema de Innovación Tecnológica • Relanzamiento de Marca
-                    </div>
-
-                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight text-white leading-tight uppercase mb-4 drop-shadow-lg">
-                        Llevar a CAMIMPEG <br>
-                        <span class="bg-gradient-to-r from-brand-gold-light via-brand-gold to-yellow-600 bg-clip-text text-transparent">
-                            Al Estándar de los Titanes Mundiales.
-                        </span>
-                    </h1>
-
-                    <p class="max-w-3xl text-xs sm:text-sm md:text-base text-zinc-300 font-normal leading-relaxed mb-8 drop-shadow">
-                        Estimada Junta Directiva: los grandes consorcios y fondos internacionales no comprometen capital sobre carpetas estáticas. Invierten cuando pueden <strong>constatar la realidad de sus operaciones, validar sus instalaciones y recorrer de manera inmersiva en 360°</strong> su capacidad instalada antes de estampar su firma en alianzas estratégicas de alto nivel.
-                    </p>
-
-                    <!-- BOTÓN COMENZAR -->
-                    <button id="btnStartPresentation" class="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-brand-gold text-black font-display font-bold text-base md:text-lg tracking-wider uppercase transition-all duration-300 hover:bg-brand-gold-light hover:scale-105 shadow-glow active:scale-95 cursor-pointer">
-                        <div class="w-9 h-9 rounded-full bg-black text-brand-gold flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                            <i class="fa-solid fa-play text-xs pl-0.5"></i>
-                        </div>
-                        <span>Ver Master Reel & Estrategia Ejecutiva</span>
-                    </button>
-                    
-                    <span class="text-zinc-400 text-[11px] tracking-wider uppercase mt-4 block">Toque para reproducir pieza audiovisual y activar audio inmersivo</span>
-                </div>
-
-                <!-- Pie de la antesala -->
-                <footer class="relative z-10 w-full px-8 py-4 border-t border-white/10 glass-panel flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
-                    <span>Presentado a la Junta Directiva de CAMIMPEG por la Consultora & Productora Inmersiva</span>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-globe text-brand-gold"></i>
-                        <span>Programa de Posicionamiento Global & Negociaciones B2B 2026-2030</span>
-                    </div>
-                </footer>
-            </div>
-
-            <!-- CAPA 2: REPRODUCTOR DE YOUTUBE -->
-            <div id="youtubeLayer" class="absolute inset-0 z-20 hidden opacity-0 transition-opacity duration-700 flex flex-col bg-black">
-                <div class="absolute top-0 left-0 right-0 z-30 px-6 py-4 flex items-center justify-between bg-gradient-to-b from-black/95 via-black/60 to-transparent pointer-events-auto">
-                    <div class="flex items-center space-x-3">
-                        <button id="btnBackToSplash" class="px-4 py-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white hover:border-brand-gold text-xs flex items-center gap-2 transition-colors cursor-pointer">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            <span>Reiniciar</span>
-                        </button>
-                        <span class="text-xs font-mono tracking-widest text-zinc-300 uppercase hidden sm:inline-block">
-                            <i class="fa-brands fa-youtube text-red-500 mr-1.5"></i> Pieza Audiovisual Institucional Master
-                        </span>
-                    </div>
-
-                    <button id="btnContinueFromVideo" class="px-6 py-2.5 rounded-xl bg-white text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-black transition-all shadow-glow flex items-center gap-2 cursor-pointer">
-                        <span>Explorar Estrategia por Línea de Negocio</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                </div>
-
-                <div class="w-full h-full relative bg-black flex items-center justify-center">
-                    <iframe id="ytPlayerIframe" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- ========================================================================= -->
-        <!-- PANTALLA 2: ESTRATEGIA DE LAS 6 LÍNEAS OPERATIVAS (LN) -->
-        <!-- ========================================================================= -->
-        <main id="portfolioScreen" class="relative z-10 flex-1 flex flex-col opacity-0 pointer-events-none transition-opacity duration-700 pb-16">
-            
-            <!-- Barra de navegación fija superior -->
-            <nav class="sticky top-0 z-40 w-full glass-panel border-b border-brand-border/80 px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <button id="btnBackToHero" class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 text-xs flex items-center gap-2 transition-colors cursor-pointer">
-                        <i class="fa-solid fa-film text-xs"></i>
-                        <span>Ver Master Reel</span>
-                    </button>
-                    <div class="h-5 w-px bg-zinc-800"></div>
-                    <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-brand-gold/10 border border-brand-gold/40 flex items-center justify-center">
-                            <i class="fa-solid fa-compass text-brand-gold text-sm"></i>
-                        </div>
-                        <div>
-                            <h2 class="font-display font-bold text-sm tracking-wide text-white">PLAN DE RELANZAMIENTO INTERNACIONAL</h2>
-                            <p class="text-[10px] text-zinc-400 font-mono">ESTRUCTURA DE INNOVACIÓN PARA LAS 6 LÍNEAS DE CAMIMPEG</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Acciones ejecutivas -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <button id="btnOpenDossierTechModal" class="px-3 sm:px-4 py-2 rounded-xl bg-zinc-900 border border-brand-gold/40 text-brand-gold-light hover:bg-brand-gold hover:text-black font-display font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-glow-subtle">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                        <span class="hidden sm:inline">Propuesta de Relanzamiento ($62.8K)</span>
-                        <span class="sm:hidden">Presupuesto</span>
-                    </button>
-                    <button id="btnOpenInquiryModal" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center gap-2 shadow-glow cursor-pointer">
-                        <i class="fa-solid fa-signature"></i>
-                        <span>Aprobar Consultoría</span>
-                    </button>
-                </div>
-            </nav>
-
-            <!-- Banner Estratégico: Diagnóstico y Benchmark Global (SLB & Halliburton) -->
-            <!-- Banner Estratégico: Innovación Tecnológica y Relanzamiento de Marca -->
-            <section class="max-w-7xl mx-auto w-full px-6 pt-6">
-                <div class="rounded-3xl glass-panel p-6 border border-brand-gold/30 relative overflow-hidden bg-gradient-to-r from-zinc-950 via-zinc-900 to-black">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-                        <div class="max-w-3xl">
-                            <div class="flex items-center gap-2 text-brand-gold text-xs font-mono tracking-widest uppercase mb-2">
-                                <span class="w-2 h-2 rounded-full bg-brand-gold animate-ring"></span>
-                                Innovación Tecnológica para el Relanzamiento de Marca
-                            </div>
-                            <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
-                                Mostrar la Realidad Operativa y Generar Confianza en Mesas de Negociación
-                            </h2>
-                            <p class="text-xs sm:text-sm text-zinc-300 mt-2 leading-relaxed">
-                                Señores Directores: en cumbres internacionales y rondas estratégicas de negocios, las carpetas convencionales no generan certeza. Los comités de inversión exigen <strong>conocer la realidad tangible de las operaciones y la capacidad de sus servicios</strong>. Al entregarles esta <strong>Web-App táctica en iPad</strong> y sumergirlos en <strong>recorridos inmersivos 360°</strong>, CAMIMPEG demuestra con hechos la existencia y solidez de sus activos, disipando cualquier incertidumbre y construyendo la confianza necesaria para cerrar acuerdos de inversión bilateral.
-                            </p>
-                        </div>
-                        <div class="flex items-center gap-3 shrink-0">
-                            <div class="bg-black/60 border border-zinc-800 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-display font-extrabold text-brand-gold">6</div>
-                                <div class="text-[10px] text-zinc-400 uppercase font-mono mt-0.5">Sectores Clave</div>
-                            </div>
-                            <div class="bg-black/60 border border-zinc-800 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-display font-extrabold text-white">24</div>
-                                <div class="text-[10px] text-zinc-400 uppercase font-mono mt-0.5">Jornadas de Captura</div>
-                            </div>
-                            <div class="bg-black/60 border border-zinc-800 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-display font-extrabold text-brand-gold">360°</div>
-                                <div class="text-[10px] text-zinc-400 uppercase font-mono mt-0.5">Recorridos Inmersivos</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Encabezado de Catálogo & Buscador -->
-            <section class="max-w-7xl mx-auto w-full px-6 pt-8 pb-4">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-                    <div>
-                        <div class="flex items-center gap-2 text-brand-gold text-xs font-mono tracking-widest uppercase mb-1">
-                            <i class="fa-solid fa-layer-group"></i> Estrategia Sectorial de Posicionamiento
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
-                            Qué desarrollaremos para cada una de sus 6 Líneas
-                        </h2>
-                        <p class="text-sm text-zinc-400 max-w-xl mt-1.5">
-                            Seleccione cada línea para descubrir cómo nuestra consultora elevará la narrativa institucional y entregará a sus directores la herramienta táctica de persuasión para negociaciones bilaterales.
-                        </p>
-                    </div>
-
-                    <!-- Buscador ágil para tablet -->
-                    <div class="relative w-full md:w-80">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
-                        <input type="text" id="searchInput" placeholder="Buscar por línea estratégica o código..." class="w-full pl-9 pr-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand-gold/60 transition-colors">
-                    </div>
-                </div>
-
-                <!-- Botones de filtrado táctil por Línea Estratégica -->
-                <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="filterContainer">
-                    <button data-filter="all" class="filter-btn active-pill px-4 py-2 rounded-xl text-xs font-semibold tracking-wider whitespace-nowrap bg-white text-black transition-all cursor-pointer">
-                        Las 6 Líneas de CAMIMPEG (<span id="countAll">6</span>)
-                    </button>
-                    <button data-filter="LN-01" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-01 Hidrocarburos
-                    </button>
-                    <button data-filter="LN-02" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-02 Minería
-                    </button>
-                    <button data-filter="LN-03" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-03 Seguridad Integral
-                    </button>
-                    <button data-filter="LN-04" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-04 Transporte Multimodal
-                    </button>
-                    <button data-filter="LN-05" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-05 Comercialización
-                    </button>
-                    <button data-filter="LN-06" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer">
-                        LN-06 Aduana & Exterior
-                    </button>
-                </div>
-            </section>
-
-            <!-- Grid de las 6 Líneas Estratégicas -->
-            <section class="max-w-7xl mx-auto w-full px-6 flex-1">
-                <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Tarjetas inyectadas dinámicamente mediante JS -->
-                </div>
-
-                <div id="emptyState" class="hidden text-center py-20 border border-dashed border-zinc-800 rounded-3xl bg-zinc-950/40">
-                    <i class="fa-regular fa-folder-open text-4xl text-zinc-600 mb-3"></i>
-                    <h3 class="font-display font-semibold text-white text-base">No se encontraron líneas de servicio coincidentes</h3>
-                    <p class="text-xs text-zinc-500 mt-1">Ajuste los términos de búsqueda o seleccione otra categoría estratégica.</p>
-                </div>
-            </section>
-
-            <!-- Métricas de Impacto Institucional -->
-            <section class="max-w-7xl mx-auto w-full px-6 mt-12">
-                <div class="rounded-3xl glass-panel p-6 border border-zinc-800 grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                        <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Innovación de Marca</span>
-                        <div class="text-2xl md:text-3xl font-display font-bold text-brand-gold mt-1">Vanguardia</div>
-                        <p class="text-xs text-zinc-400 mt-0.5">Herramienta tecnológica de alto impacto para exposiciones y cumbres B2B.</p>
-                    </div>
-                    <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                        <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Presencia en Misiones</span>
-                        <div class="text-2xl md:text-3xl font-display font-bold text-white mt-1">Expos</div>
-                        <p class="text-xs text-zinc-400 mt-0.5">Herramienta offline para cumbres en Dubái, Houston, Ginebra o Caracas.</p>
-                    </div>
-                    <div class="border-r border-zinc-800/80 pr-4 last:border-none">
-                        <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Validación Operativa</span>
-                        <div class="text-2xl md:text-3xl font-display font-bold text-white mt-1">PWA + VR</div>
-                        <p class="text-xs text-zinc-400 mt-0.5">Inspección de activos sin barrera ni demoras de traslado físico.</p>
-                    </div>
-                    <div>
-                        <span class="text-zinc-500 font-mono text-[10px] uppercase block tracking-wider">Estructura Legal</span>
-                        <div class="text-2xl md:text-3xl font-display font-bold text-brand-gold mt-1">B2B / B2G</div>
-                        <p class="text-xs text-zinc-400 mt-0.5">Facilitador de joint ventures y contratos de producción compartida.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- ========================================================================= -->
-        <!-- MODAL 1: DETALLE TÉCNICO & ARGUMENTARIO PARA MESAS DE NEGOCIACIÓN -->
-        <!-- ========================================================================= -->
-        <div id="serviceDetailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 transition-all">
-            <div class="relative w-full max-w-3xl bg-zinc-950 border border-brand-gold/40 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
-                <button id="btnCloseDetailModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <div class="flex items-center gap-3 mb-3">
-                    <span id="detailBadgeCode" class="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase bg-brand-gold/15 text-brand-gold border border-brand-gold/40">
-                        LN-01
-                    </span>
-                    <span id="detailCategory" class="text-zinc-400 text-xs font-mono uppercase">Línea Estratégica</span>
-                </div>
-
-                <h3 id="detailTitle" class="text-2xl md:text-3xl font-display font-bold text-white mb-2 leading-snug">
-                    Título de la Línea
-                </h3>
-
-                <!-- Gancho Estratégico en Mesa de Negociación -->
-                <div class="p-3.5 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 mb-5">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-brand-gold block font-semibold mb-1">
-                        <i class="fa-solid fa-bullhorn mr-1"></i> Argumento de Cierre en Mesa de Negociación:
-                    </span>
-                    <p id="detailPitch" class="text-xs sm:text-sm text-brand-gold-light italic font-medium leading-relaxed"></p>
-                </div>
-
-                <div class="overflow-y-auto pr-1 flex-1 space-y-5">
-                    <!-- Resumen del Alcance Operativo -->
-                    <div>
-                        <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-1.5 font-semibold">Alcance Operativo & Posicionamiento:</span>
-                        <p id="detailDescription" class="text-xs sm:text-sm text-zinc-300 leading-relaxed"></p>
-                    </div>
-
-                    <!-- Dos Bloques: Dolor que resuelve y Modelo Financiero -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800">
-                            <span class="text-[11px] font-mono text-emerald-400 uppercase block mb-1 font-semibold">
-                                <i class="fa-solid fa-shield-virus mr-1"></i> Certeza que Exige el Socio Internacional
-                            </span>
-                            <p id="detailProblem" class="text-xs text-zinc-300 leading-relaxed"></p>
-                        </div>
-                        <div class="bg-zinc-900/70 p-4 rounded-2xl border border-zinc-800">
-                            <span class="text-[11px] font-mono text-brand-gold uppercase block mb-1 font-semibold">
-                                <i class="fa-solid fa-chart-line mr-1"></i> Retorno Estratégico & Alianza
-                            </span>
-                            <p id="detailRoi" class="text-xs text-zinc-300 leading-relaxed"></p>
-                        </div>
-                    </div>
-
-                    <!-- Validación Operativa e Inmersión Asignada -->
-                    <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800/90">
-                        <span class="text-[11px] font-mono text-cyan-400 uppercase block mb-2 font-semibold">
-                            <i class="fa-solid fa-vr-cardboard mr-1"></i> Muestra de Realidad Operativa (Cinematografía Ejecutiva + Recorrido Inmersivo 360°):
-                        </span>
-                        <p id="detailAvCoverage" class="text-xs text-zinc-300 leading-relaxed"></p>
-                    </div>
-
-                    <!-- Puntos Clave del Despliegue -->
-                    <div>
-                        <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider block mb-2 font-semibold">Entregables de Marca & Activos de Negociación:</span>
-                        <ul id="detailBullets" class="space-y-2 text-xs text-zinc-300"></ul>
-                    </div>
-                </div>
-
-                <div class="pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3 mt-2">
-                    <button id="btnRequestLNQuote" class="w-full sm:flex-1 py-3 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center justify-center gap-2 shadow-glow cursor-pointer">
-                        <i class="fa-solid fa-file-contract"></i>
-                        <span>Incorporar esta Línea al Plan de Relanzamiento</span>
-                    </button>
-                    <button id="btnOpenVrDemoNotice" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-200 text-xs font-semibold tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-cube text-brand-gold"></i>
-                        <span>Demostración de Recorrido 360°</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========================================================================= -->
-        <!-- MODAL 2: DOSSIER ESTRATÉGICO & ECONÓMICO (USD 62.800) -->
-        <!-- ========================================================================= -->
-        <div id="dossierTechModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all">
-            <div class="relative w-full max-w-3xl bg-zinc-950 border border-brand-gold/50 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
-                <button id="btnCloseDossierTechModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-brand-gold/15 text-brand-gold border border-brand-gold/40">
-                        PROPUESTA INTEGRAL DE CONSULTORÍA & PRODUCCIÓN
-                    </span>
-                </div>
-                <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">
-                    Inversión en el Relanzamiento Internacional de Marca
-                </h3>
-                <p class="text-xs text-zinc-400 mb-4">
-                    Programa cerrado llave en mano para dotar a la Directiva de CAMIMPEG de una infraestructura digital interactiva y audiovisual bajo los más exigentes estándares de <strong>innovación tecnológica global</strong>.
-                </p>
-
-                <div class="overflow-y-auto pr-1 flex-1 space-y-4">
-                    <!-- Cuadro Comparativo de los 3 Componentes -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        <div class="p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
-                            <div class="w-8 h-8 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-3 text-sm">
-                                <i class="fa-solid fa-tablet-screen-button"></i>
-                            </div>
-                            <h4 class="font-display font-bold text-white text-sm mb-1">1. Web-App Táctica (PWA)</h4>
-                            <ul class="text-[11px] text-zinc-400 space-y-1">
-                                <li>• Software PWA para iPad de la Directiva</li>
-                                <li>• Catálogo interactivo de servicios y capacidades</li>
-                                <li>• Modo offline para cumbres internacionales</li>
-                                <li>• Conmutación a recorrido inmersivo 360° en 1 toque</li>
-                            </ul>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
-                            <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3 text-sm">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
-                            <h4 class="font-display font-bold text-white text-sm mb-1">2. Cinematografía Ejecutiva</h4>
-                            <ul class="text-[11px] text-zinc-400 space-y-1">
-                                <li>• 12 jornadas de despliegue en campo</li>
-                                <li>• Producción aérea y terrestre de alto nivel</li>
-                                <li>• 1 Master Internacional (3-5 min)</li>
-                                <li>• 6 Cápsulas sectoriales para negociaciones</li>
-                            </ul>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
-                            <div class="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3 text-sm">
-                                <i class="fa-solid fa-vr-cardboard"></i>
-                            </div>
-                            <h4 class="font-display font-bold text-white text-sm mb-1">3. Recorridos Inmersivos 360°</h4>
-                            <ul class="text-[11px] text-zinc-400 space-y-1">
-                                <li>• 12 jornadas de captura inmersiva en campo</li>
-                                <li>• Recorridos virtuales 360° de alta resolución</li>
-                                <li>• Audio envolvente de operaciones en sitio</li>
-                                <li>• Demostración palpable de infraestructura real</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Desglose de Inversión -->
-                    <div class="p-4 rounded-2xl bg-zinc-900/80 border border-brand-gold/30">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-3 mb-3">
-                            <span class="text-xs font-mono uppercase text-zinc-400">Inversión Total del Programa Integral:</span>
-                            <span class="text-2xl font-display font-extrabold text-brand-gold">USD 62.800</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-300">
-                            <div class="bg-black/40 p-2.5 rounded-xl border border-zinc-800/80">
-                                <span class="font-mono text-[10px] text-zinc-500 block uppercase">50% Anticipo & Estrategia</span>
-                                <strong class="text-white">USD 31.400</strong>
-                            </div>
-                            <div class="bg-black/40 p-2.5 rounded-xl border border-zinc-800/80">
-                                <span class="font-mono text-[10px] text-zinc-500 block uppercase">30% Cierre Jornadas en Campo</span>
-                                <strong class="text-white">USD 18.840</strong>
-                            </div>
-                            <div class="bg-black/40 p-2.5 rounded-xl border border-zinc-800/80">
-                                <span class="font-mono text-[10px] text-zinc-500 block uppercase">20% Despliegue & Entrega Final</span>
-                                <strong class="text-white">USD 12.560</strong>
-                            </div>
-                        </div>
-                        <p class="text-[11px] text-zinc-400 mt-3 italic">
-                            *Nota Operativa: La coordinación de seguridad institucional, traslados internos y accesos a zonas estratégicas se realiza en articulación directa con los enlaces designados por CAMIMPEG.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="pt-4 border-t border-zinc-800 flex justify-end gap-3 mt-2">
-                    <button id="btnContactDossier" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center justify-center gap-2 shadow-glow cursor-pointer">
-                        <i class="fa-solid fa-signature"></i>
-                        <span>Iniciar Plan de Relanzamiento</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========================================================================= -->
-        <!-- MODAL 3: REGISTRO DE APROBACIÓN POR LA JUNTA DIRECTIVA -->
-        <!-- ========================================================================= -->
-        <div id="inquiryModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
-            <div class="relative w-full max-w-lg bg-zinc-950 border border-brand-border rounded-3xl p-6 md:p-8 shadow-2xl">
-                <button id="btnCloseInquiryModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center cursor-pointer">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="w-7 h-7 rounded-lg bg-brand-gold/15 flex items-center justify-center text-brand-gold text-xs">
-                        <i class="fa-solid fa-file-signature"></i>
-                    </div>
-                    <span class="text-xs font-mono uppercase text-brand-gold tracking-wider">Junta Directiva CAMIMPEG</span>
-                </div>
-                <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Aprobación del Programa Estratégico</h3>
-                <p class="text-xs text-zinc-400 mb-6">Indique los datos de la autoridad institucional responsable para formalizar el inicio de la consultoría y la agenda de trabajo.</p>
-
-                <form id="inquiryForm" class="space-y-4">
-                    <div>
-                        <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Nombre y Rango del Directivo</label>
-                        <input required type="text" id="inputName" placeholder="Ej. General de División / Director General" class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
-                    </div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Alcance Prioritario</label>
-                            <select id="inputSector" class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-gold">
-                                <option value="Plan Integral 6 Líneas ($62.8K)">Plan Completo (6 Líneas de Negocio)</option>
-                                <option value="LN-01 | Hidrocarburos">LN-01 | Hidrocarburos</option>
-                                <option value="LN-02 | Minería">LN-02 | Minería</option>
-                                <option value="LN-03 | Seguridad Integral">LN-03 | Seguridad Integral</option>
-                                <option value="LN-04 | Transporte Multimodal">LN-04 | Transporte Multimodal</option>
-                                <option value="LN-05 | Comercialización">LN-05 | Comercialización</option>
-                                <option value="LN-06 | Aduana & Exterior">LN-06 | Aduana & Exterior</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Contacto Directo / WhatsApp</label>
-                            <input required type="text" id="inputCompany" placeholder="+58 414..." class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-mono uppercase text-zinc-400 mb-1">Correo Institucional</label>
-                        <input required type="email" id="inputEmail" placeholder="presidencia@camimpeg.gob.ve" class="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
-                    </div>
-
-                    <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all flex items-center justify-center gap-2 mt-4 shadow-glow cursor-pointer">
-                        <i class="fa-solid fa-check"></i>
-                        <span>Aprobar Inicio de Consultoría Estratégica</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- NOTIFICACIÓN TOAST -->
-        <div id="toastMessage" class="fixed bottom-6 right-6 z-50 glass-panel border border-brand-gold/40 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-            <div class="w-7 h-7 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-xs">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <div>
-                <span id="toastTitle" class="text-xs font-bold text-white block">Acción completada</span>
-                <span id="toastSub" class="text-[11px] text-zinc-400 block">Operación registrada exitosamente.</span>
-            </div>
-        </div>
-
+        <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white">Gire su dispositivo</h3>
+        <p class="text-xs text-zinc-500 mt-2 max-w-xs">Experiencia configurada exclusivamente para visualización horizontal.</p>
     </div>
 
+    <!-- ========================================================================= -->
+    <!-- PANTALLA 1: HERO & VIDEO (Full Pantalla) -->
+    <!-- ========================================================================= -->
+    <section id="heroScreen" class="fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-black transition-opacity duration-700">
+        
+        <!-- Antesala con GIF -->
+        <div id="splashLayer" class="absolute inset-0 z-10 flex flex-col justify-between p-8 md:p-12 transition-opacity duration-500">
+            <!-- Background GIF con viñeta -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img src="https://media.giphy.com/media/GNeBk59rTEsnKpFPDe/giphy.gif" class="w-full h-full object-cover filter brightness-[0.55] contrast-[1.2]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
+            </div>
+
+            <!-- Header -->
+            <header class="relative z-10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-11 object-contain">
+                    <span class="text-xs font-mono tracking-widest text-zinc-400 uppercase hidden sm:inline">Innovación Estratégica</span>
+                </div>
+                <button id="toggleFullscreenBtn" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors">
+                    <i class="fa-solid fa-expand text-xs"></i>
+                </button>
+            </header>
+
+            <!-- Centro Minimalista -->
+            <div class="relative z-10 max-w-2xl my-auto">
+                <span class="text-[11px] font-mono tracking-widest text-brand-gold uppercase block mb-3 font-semibold">Relanzamiento Internacional</span>
+                <h1 class="text-4xl md:text-6xl font-display font-bold tracking-tight text-white uppercase leading-none mb-4">
+                    Infraestructura Real.<br>
+                    <span class="text-brand-gold">Certeza Global.</span>
+                </h1>
+                <p class="text-xs md:text-sm text-zinc-400 leading-relaxed max-w-lg mb-8">
+                    Validación inmersiva 360° y cinematografía de operaciones para mesas de negociación internacional.
+                </p>
+
+                <button id="btnStartPresentation" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-widest hover:bg-brand-gold-light hover:scale-105 active:scale-95 transition-all shadow-[0_0_25px_rgba(212,175,55,0.3)]">
+                    <i class="fa-solid fa-play text-[10px]"></i>
+                    <span>Iniciar Presentación</span>
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <footer class="relative z-10 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                <span>CAMIMPEG B2B PORTAL</span>
+                <span>CONFIDENCIAL DIRECTIVO</span>
+            </footer>
+        </div>
+
+        <!-- Reproductor YouTube -->
+        <div id="youtubeLayer" class="absolute inset-0 z-20 hidden opacity-0 transition-opacity duration-500 flex flex-col bg-black">
+            <div class="absolute top-0 left-0 right-0 z-30 p-6 flex items-center justify-between bg-gradient-to-b from-black/90 to-transparent">
+                <button id="btnBackToSplash" class="px-3.5 py-1.5 rounded-lg bg-black/60 border border-white/20 text-xs text-zinc-300 hover:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i> Reiniciar
+                </button>
+                <button id="btnContinueFromVideo" class="px-5 py-2 rounded-lg bg-white text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold transition-colors flex items-center gap-2">
+                    <span>Ver Líneas</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+            <iframe id="ytPlayerIframe" class="w-full h-full border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PANTALLA 2: LÍNEAS DE NEGOCIO (Minimalista & Conciso) -->
+    <!-- ========================================================================= -->
+    <main id="portfolioScreen" class="relative z-10 flex-1 flex flex-col opacity-0 pointer-events-none transition-opacity duration-700 pb-12">
+        
+        <!-- Nav Superior -->
+        <nav class="sticky top-0 z-40 w-full glass border-b border-brand-border px-6 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button id="btnBackToHero" class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-film text-[10px]"></i> Video
+                </button>
+                <img src="https://i.postimg.cc/NFL6TcG9/LOGO-CAMIMPEG.png" alt="CAMIMPEG" class="h-7 object-contain">
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button id="btnOpenEcosystemModal" class="px-3.5 py-1.5 rounded-lg bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all">
+                    Ecosistema $62.8K
+                </button>
+                <button id="btnOpenInquiryModal" class="px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-xs text-zinc-300">
+                    Contacto
+                </button>
+            </div>
+        </nav>
+
+        <!-- Filtros Rápidos -->
+        <header class="max-w-7xl mx-auto w-full px-6 pt-8 pb-4">
+            <div class="flex items-center justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-tight">Capacidades Operativas</h2>
+                    <p class="text-xs text-zinc-500 mt-0.5">Validación en terreno de las 6 líneas estratégicas.</p>
+                </div>
+                <div class="relative w-64 hidden sm:block">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar..." class="w-full pl-8 pr-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="filterContainer">
+                <button data-filter="all" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-semibold bg-white text-black transition-all">Todos</button>
+                <button data-filter="hidrocarburos" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-01 Hidrocarburos</button>
+                <button data-filter="mineria" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-02 Minería</button>
+                <button data-filter="seguridad" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-03 Seguridad</button>
+                <button data-filter="transporte" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-04 Guanta</button>
+                <button data-filter="comercializacion" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-05 Insumos</button>
+                <button data-filter="aduana" class="filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all">LN-06 Aduana</button>
+            </div>
+        </header>
+
+        <!-- Grilla de Tarjetas Minimalistas -->
+        <section class="max-w-7xl mx-auto w-full px-6 flex-1">
+            <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Tarjetas dinámicas inyectadas por JS -->
+            </div>
+        </section>
+
+        <!-- Barra Inferior de Métricas Directas -->
+        <section class="max-w-7xl mx-auto w-full px-6 mt-10">
+            <div class="rounded-2xl bg-zinc-950 border border-zinc-900 p-4 grid grid-cols-3 text-center divide-x divide-zinc-900">
+                <div>
+                    <span class="text-lg md:text-xl font-display font-bold text-white block">06</span>
+                    <span class="text-[10px] font-mono text-zinc-500 uppercase">Líneas de Negocio</span>
+                </div>
+                <div>
+                    <span class="text-lg md:text-xl font-display font-bold text-brand-gold block">360°</span>
+                    <span class="text-[10px] font-mono text-zinc-500 uppercase">Validación Inmersiva</span>
+                </div>
+                <div>
+                    <span class="text-lg md:text-xl font-display font-bold text-white block">24 Días</span>
+                    <span class="text-[10px] font-mono text-zinc-500 uppercase">Captura en Terreno</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL DETALLE DE LÍNEA (Preciso y Directo) -->
+    <!-- ========================================================================= -->
+    <div id="serviceDetailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-xl bg-brand-surface border border-zinc-800 rounded-2xl p-6 shadow-2xl flex flex-col">
+            <button id="btnCloseDetailModal" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="text-[10px] font-mono font-bold text-brand-gold uppercase tracking-widest block mb-1" id="detailCode">LN-01</span>
+            <h3 id="detailTitle" class="text-xl font-display font-bold text-white mb-2">Título de la Línea</h3>
+            <p id="detailDesc" class="text-xs text-zinc-400 mb-5 leading-relaxed">Descripción breve.</p>
+
+            <div class="bg-black/60 border border-zinc-800/80 rounded-xl p-3.5 mb-5">
+                <span class="text-[10px] font-mono uppercase text-brand-gold block font-semibold mb-1">Certeza para el Inversor:</span>
+                <p id="detailProof" class="text-xs text-zinc-300"></p>
+            </div>
+
+            <div class="mb-6">
+                <span class="text-[10px] font-mono uppercase text-zinc-500 block mb-2">Despliegue Técnico (2 Días de Campo):</span>
+                <ul id="detailBullets" class="space-y-1.5 text-xs text-zinc-300 font-mono"></ul>
+            </div>
+
+            <button onclick="document.getElementById('btnCloseDetailModal').click()" class="w-full py-2.5 rounded-lg bg-white text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold transition-colors">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL ECOSISTEMA $62.8K (Estructurado y Claro) -->
+    <!-- ========================================================================= -->
+    <div id="ecosystemModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-2xl bg-brand-surface border border-zinc-800 rounded-2xl p-6 md:p-8 shadow-2xl">
+            <button id="btnCloseEcosystemModal" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-mono text-brand-gold uppercase tracking-widest">Propuesta Integral</span>
+            </div>
+            <h3 class="text-2xl font-display font-bold text-white mb-1">Ecosistema Inmersivo & Audiovisual</h3>
+            <p class="text-xs text-zinc-400 mb-6">Herramienta B2B para proyectar las capacidades de CAMIMPEG ante inversores.</p>
+
+            <!-- 3 Entregables Clave -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                <div class="p-3.5 rounded-xl bg-black border border-zinc-900">
+                    <i class="fa-solid fa-mobile-screen text-brand-gold text-sm mb-2 block"></i>
+                    <h4 class="font-display font-bold text-xs text-white uppercase">Web-App B2B</h4>
+                    <p class="text-[11px] text-zinc-400 mt-1">Plataforma interactiva para iPad sin necesidad de instalación.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black border border-zinc-900">
+                    <i class="fa-solid fa-film text-brand-gold text-sm mb-2 block"></i>
+                    <h4 class="font-display font-bold text-xs text-white uppercase">Cinematografía</h4>
+                    <p class="text-[11px] text-zinc-400 mt-1">Master Oficial + 6 Cápsulas tácticas de alta definición.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black border border-zinc-900">
+                    <i class="fa-solid fa-vr-cardboard text-brand-gold text-sm mb-2 block"></i>
+                    <h4 class="font-display font-bold text-xs text-white uppercase">Recorridos 360°</h4>
+                    <p class="text-[11px] text-zinc-400 mt-1">Navegación inmersiva de instalaciones para tablets y pantallas.</p>
+                </div>
+            </div>
+
+            <!-- Cuadro de Inversión -->
+            <div class="p-4 rounded-xl bg-black border border-brand-gold/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                <div>
+                    <span class="text-[10px] font-mono uppercase text-zinc-500 block">Presupuesto Cerrado</span>
+                    <span class="text-2xl font-display font-bold text-white">USD 62.800</span>
+                </div>
+                <div class="text-left sm:text-right font-mono text-[11px] text-zinc-400">
+                    <span>50% Anticipo · 30% Campo · 20% Entrega</span>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('btnCloseEcosystemModal').click(); document.getElementById('btnOpenInquiryModal').click();" class="w-full py-3 rounded-lg bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all">
+                Registrar Solicitud
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL CONTACTO -->
+    <!-- ========================================================================= -->
+    <div id="inquiryModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-brand-surface border border-zinc-800 rounded-2xl p-6 shadow-2xl">
+            <button id="btnCloseInquiryModal" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-lg font-display font-bold text-white mb-1">Mesa de Inversiones</h3>
+            <p class="text-xs text-zinc-400 mb-5">Ingrese los datos para coordinar una sesión bilateral.</p>
+
+            <form id="inquiryForm" class="space-y-3">
+                <input required type="text" id="inputCompany" placeholder="Empresa / Delegación" class="w-full px-3 py-2 bg-black border border-zinc-800 rounded-lg text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
+                <input required type="text" id="inputName" placeholder="Representante" class="w-full px-3 py-2 bg-black border border-zinc-800 rounded-lg text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
+                <input required type="email" id="inputEmail" placeholder="Correo Corporativo" class="w-full px-3 py-2 bg-black border border-zinc-800 rounded-lg text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-brand-gold">
+                
+                <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-gold text-black font-display font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-light transition-all mt-2">
+                    Enviar Registro
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT DIRECTO Y LIGERO -->
+    <!-- ========================================================================= -->
     <script>
         const MEDIA_CONFIG = {
-            gifDirectUrl: "https://media.giphy.com/media/GNeBk59rTEsnKpFPDe/giphy.gif",
-            gifFallbackUrl: "https://i.giphy.com/GNeBk59rTEsnKpFPDe.gif",
             youtubeVideoId: "jX4x6mT5nnM"
         };
 
-        const strategicLinesData = [
+        // Base de Datos Reducida y Precisa
+        const strategicLines = [
             {
                 id: 1,
                 code: "LN-01",
-                category: "LN-01",
-                categoryLabel: "Hidrocarburos",
-                title: "Pozos Activos, Estaciones de Flujo & Compresión de Gas",
+                category: "hidrocarburos",
+                title: "Hidrocarburos & Gas",
+                desc: "Pozos activos, estaciones de flujo y plantas de compresión de gas.",
                 icon: "fa-oil-well",
-                pitch: "«Posicionaremos a CAMIMPEG bajo el estándar de un operador de servicios integrados de clase mundial: demostraremos en sala de negociación que poseen pozos activos, infraestructura en marcha y gas monetizable al instante.»",
-                description: "Desarrollaremos un paquete audiovisual cinematográfico enfocado en la certificación visual de pozos y taladros activos, sumado a un recorrido inmersivo 360° en estaciones de flujo y plantas de compresión de alta presión.",
-                problemSolved: "En foros y mesas de negociación, el inversor internacional teme la inoperatividad o la falta de infraestructura real en sitio. Al visualizar el recorrido 360° en la Web-App o en pantallas de negociación, constata en primera persona las dimensiones, los equipos en operación y el estándar de las instalaciones, disipando cualquier duda de viabilidad.",
-                roi: "Atracción de Contratos de Servicios Integrados (CSI) y capital extranjero de perforación al ofrecer certezas operativas verificables.",
-                avCoverage: "Despliegue cinematográfico ejecutivo en cabezales y estaciones + Recorrido inmersivo 360° para mostrar la realidad de las operaciones.",
+                proof: "Comprueba el flujo continuo de crudo y el régimen activo de compresión sin traslados.",
                 bullets: [
-                    "Cápsula cinematográfica ejecutiva con locución bilingüe para rondas internacionales de inversión.",
-                    "Entorno inmersivo 360° para visualización de infraestructura de compresión de gas y pozos.",
-                    "Puntos informativos interactivos con especificaciones de capacidad operativa y técnica.",
-                    "Ficha de validación operativa integrada en la Web-App para juntas directivas y cumbres globales."
+                    "Cinematografía aérea y terrestre en macollas activas.",
+                    "Recorrido 360° en estaciones y taladros de producción."
                 ]
             },
             {
                 id: 2,
                 code: "LN-02",
-                category: "LN-02",
-                categoryLabel: "Minería Estratégica",
-                title: "Operaciones en Cantera, Perforación & Centros Logísticos",
+                category: "mineria",
+                title: "Minería Estratégica",
+                desc: "Canteras, centros de perforación y plantas de beneficio mineral.",
                 icon: "fa-gem",
-                pitch: "«Presentaremos a CAMIMPEG como el único socio soberano que garantiza minería a gran escala, 100% formalizada, tecnificada y con estricta salvaguarda ambiental e institucional.»",
-                description: "Levantamiento cinematográfico integral de frentes de corte, maquinaria pesada y plantas de procesamiento eco-amigables en el Arco Minero, documentando la rigurosa cadena de custodia y laboratorios de refinación.",
-                problemSolved: "El gran capital minero huye de la incertidumbre jurídica y la minería irregular. Nuestra consultora demuestra empíricamente la presencia institucional de mando militar, la trazabilidad legal en laboratorios certificados y la homologación con estándares internacionales.",
-                roi: "Cierre de acuerdos 'Joint Exploration & Production' con retornos garantizados en mineral refinado o divisas.",
-                avCoverage: "Cinematografía sobre complejos de explotación + experiencia inmersiva 360° en frentes de cantera, plantas de beneficio y centros de resguardo.",
+                proof: "Evidencia el control territorial, maquinaria pesada y extracción física real.",
                 bullets: [
-                    "Tomas cinematográficas de alta escala en frentes de extracción y áreas de beneficio.",
-                    "Recorrido inmersivo 360° que muestra la realidad de las operaciones y la seriedad de la cadena de custodia.",
-                    "Registro estético y funcional de laboratorios químicos y su equipamiento analítico.",
-                    "Material de inteligencia de negocios listo para cumbres mineras y rondas bilaterales."
+                    "Registro cinematográfico de frentes de cantera y molienda.",
+                    "Entornos 360° en patios de maniobra y laboratorios de ley."
                 ]
             },
             {
                 id: 3,
                 code: "LN-03",
-                category: "LN-03",
-                categoryLabel: "Seguridad Integral",
-                title: "Sistemas & Despliegue Táctico de Infraestructura Crítica",
+                category: "seguridad",
+                title: "Seguridad Integral",
+                desc: "Blindaje táctico de oleoductos y subestaciones eléctricas.",
                 icon: "fa-shield-halved",
-                pitch: "«El valor diferenciador indiscutible de CAMIMPEG frente a cualquier privado tradicional es su blindaje de rango constitucional: continuidad operacional absoluta y cero paradas por sabotaje.»",
-                description: "Documentación estratégica del despliegue táctico, tecnología antidrón, patrullaje en tiempo real, radares y la Sala de Comando y Control (C2) que resguarda poliductos y plantas energéticas.",
-                problemSolved: "El fantasma de paralizaciones y pérdidas patrimoniales frena las inversiones en la región. Este activo interactivo demuestra que CAMIMPEG es la garantía de continuidad ininterrumpida que ningún operador privado puede igualar.",
-                roi: "Monetización del servicio de custodia y blindaje operacional para terceros aliados como una línea de negocio B2B de alto margen.",
-                avCoverage: "Simulación de protocolos de respuesta táctica institucional + experiencia inmersiva 360° en salas C2 y centros de monitoreo satelital.",
+                proof: "Garantiza continuidad operacional y cero paralizaciones por sabotaje o conflicto.",
                 bullets: [
-                    "Demostración ejecutiva de radares tácticos, tecnología antidrón y personal altamente especializado.",
-                    "Certificación de 'Zonas Seguras de Trabajo' (ZST) para ejecutivos e ingenieros extranjeros.",
-                    "Recorrido inmersivo 360° en centros de comando integrados y salas de situación.",
-                    "Presentación de la ventaja militar como factor de certeza absoluta y mitigación de riesgo país."
+                    "Despliegue visual de salas de comando C2 y patrullaje.",
+                    "Mapeo 360° de perímetros de trabajo seguro."
                 ]
             },
             {
                 id: 4,
                 code: "LN-04",
-                category: "LN-04",
-                categoryLabel: "Transporte Multimodal",
-                title: "Terminal Portuario de Guanta, Muelles & Logística Pesada RO-RO",
+                category: "transporte",
+                title: "Transporte Guanta",
+                desc: "Operaciones en terminal de aguas profundas, remolcadores y gabarras.",
                 icon: "fa-ship",
-                pitch: "«Posicionaremos el Terminal de Guanta como el nodo logístico de mayor calado y eficiencia para tanqueros y carga pesada del comercio exterior venezolano.»",
-                description: "Producción audiovisual de alto impacto sobre operaciones de atraque, remolque, transferencia de carga pesada rodante (RO-RO) y conectividad fluvial en el eje Orinoco-Apure y el puerto de Guanta.",
-                problemSolved: "Las navieras y armadores internacionales temen cuellos de botella y sobrecostos por demurrage. La Web-App permite a directivos y capitanes evaluar maniobras náuticas, calados y patios de carga de manera inmediata y visual desde cualquier pantalla.",
-                roi: "Contratación de servicios de atraque, practicaje y suministro de combustible marino (Bunker) para buques de bandera global.",
-                avCoverage: "Cinematografía marítima y aérea al amanecer sobre buques tanqueros + recorrido inmersivo 360° en remolcadores y muelles de transferencia.",
+                proof: "Valida calado de atraque, grúas pesadas y reducción de fletes marítimos.",
                 bullets: [
-                    "Inspección interactiva de patios de acopio para maquinaria sobredimensionada y tubería de perforación.",
-                    "Visualización inmersiva 360° de maniobras de pilotaje náutico y suministro de combustible marino.",
-                    "Cartografía operativa digitalizada en la plataforma Web-App para análisis logístico.",
-                    "Herramienta de venta para ferias logísticas y portuarias en Panamá, Houston y Rotterdam."
+                    "Cobertura aerovisual de maniobras en muelles de Guanta.",
+                    "Recorridos 360° en remolcadores y áreas de carga RO-RO."
                 ]
             },
             {
                 id: 5,
                 code: "LN-05",
-                category: "LN-05",
-                categoryLabel: "Comercialización",
-                title: "Distribución Masiva de Urea, Cemento & Insumos Industriales",
-                icon: "fa-boxes-stacked",
-                pitch: "«Certificaremos al mercado global el acceso directo y preferente de CAMIMPEG a petroquímicas y cementeras para garantizar suministro continuo sin intermediarios especulativos.»",
-                description: "Cobertura de plantas petroquímicas y cementeras estatales, documentando líneas automatizadas de ensacado, almacenes techados y silos de despacho a granel de urea perlada/granulada y clínker.",
-                problemSolved: "Compradores en el exterior temen esquemas de intermediación ficticios o falta de capacidad de entrega. Nuestra herramienta certifica visualmente la existencia de instalaciones industriales de gran escala, silos de almacenamiento y procesos de despacho formal.",
-                roi: "Suscripción de contratos de suministro de largo plazo (Off-take agreements) con pagos en divisas garantizados por adelantado.",
-                avCoverage: "Cápsula cinematográfica en líneas de ensacado + recorrido inmersivo 360° que evidencia la realidad y volumen de las instalaciones de acopio.",
+                category: "comercializacion",
+                title: "Comercialización",
+                desc: "Distribución mayorista de urea, cemento e insumos industriales.",
+                icon: "fa-cubes-stacked",
+                proof: "Certifica inventario en silos de acopio y despacho continuo de convoyes.",
                 bullets: [
-                    "Constatación visual de la infraestructura y naves de almacenamiento mediante recorridos inmersivos 360°.",
-                    "Fichas de especificaciones técnicas y químicas de la urea y clínker grado exportación.",
-                    "Infografía dinámica dentro de la Web-App con capacidades de despacho marítimo a granel.",
-                    "Módulo de contacto y cotización directa para consorcios agroquímicos e industriales."
+                    "Cinematografía de naves industriales y ensacado.",
+                    "Validación 360° de centros de almacenamiento."
                 ]
             },
             {
                 id: 6,
                 code: "LN-06",
-                category: "LN-06",
-                categoryLabel: "Aduana & Exterior",
-                title: "Agenciamiento Naviero, Patios de Almacenaje & Despacho Aduanal",
-                icon: "fa-scale-balanced",
-                pitch: "«Venderemos la mayor fortaleza de comercio exterior de CAMIMPEG: el régimen de celeridad institucional que reduce a la mitad los tiempos de nacionalización de maquinaria crítica.»",
-                description: "Documentación audiovisual y técnica de patios fiscales, sistemas de inspección no intrusiva y almacenes de alta seguridad bajo resguardo de CAMIMPEG.",
-                problemSolved: "Los consorcios que ingresan al país temen trabas aduanales, pérdidas y sobrecostos por demoras. Al constatar de forma inmersiva el orden, resguardo y respaldo institucional, los socios extranjeros confían en movilizar sus flotas y repuestos estratégicos sin fricciones.",
-                roi: "Captación de honorarios de agenciamiento y corretaje aduanal para todos los consorcios internacionales que operan en territorio nacional.",
-                avCoverage: "Cinematografía en patios aduaneros + recorrido inmersivo 360° de bodegas techadas para transmitir total certeza a firmas y aseguradoras.",
+                category: "aduana",
+                title: "Aduana & Exterior",
+                desc: "Agenciamiento naviero y patios fiscales para importación y exportación.",
+                icon: "fa-warehouse",
+                proof: "Demuestra nacionalización expedita bajo custodia institucional.",
                 bullets: [
-                    "Explicación estratégica del marco de exoneración arancelaria para alianzas productivas.",
-                    "Entorno inmersivo 360° para certificar ante firmas y aseguradoras la solidez y resguardo de las instalaciones.",
-                    "Demostración de seguridad perimetral y trazabilidad satelital de contenedores.",
-                    "Módulo interactivo en la Web-App para estimación de tiempos de despacho exprés."
+                    "Registro de patios fiscales y control de contenedores.",
+                    "Experiencia 360° en áreas de inspección y despacho."
                 ]
             }
         ];
 
-        let servicesData = [...strategicLinesData];
         let currentFilter = 'all';
 
-        // Elementos del DOM
+        // Elementos DOM
+        const orientationGate = document.getElementById('orientationGate');
         const splashLayer = document.getElementById('splashLayer');
         const youtubeLayer = document.getElementById('youtubeLayer');
         const ytPlayerIframe = document.getElementById('ytPlayerIframe');
-        const btnStartPresentation = document.getElementById('btnStartPresentation');
-        const btnBackToSplash = document.getElementById('btnBackToSplash');
-        const btnContinueFromVideo = document.getElementById('btnContinueFromVideo');
-        
         const heroScreen = document.getElementById('heroScreen');
         const portfolioScreen = document.getElementById('portfolioScreen');
-        const btnBackToHero = document.getElementById('btnBackToHero');
         const servicesGrid = document.getElementById('servicesGrid');
-        const filterContainer = document.getElementById('filterContainer');
         const searchInput = document.getElementById('searchInput');
-        const emptyState = document.getElementById('emptyState');
-        const countAll = document.getElementById('countAll');
-        const toggleFullscreenBtn = document.getElementById('toggleFullscreenBtn');
 
-        // =========================================================================
-        // DETECCIÓN INTELIGENTE DE ORIENTACIÓN (HORIZONTAL OBLIGATORIO)
-        // =========================================================================
-        const orientationGate = document.getElementById('orientationGate');
-        const orientationStatusText = document.getElementById('orientationStatusText');
-        const orientationDot = document.getElementById('orientationDot');
-        const btnForceLandscape = document.getElementById('btnForceLandscape');
-        let wasPortrait = false;
-
-        // Tono sutil de desbloqueo mediante Web Audio API (alta fidelidad sin librerías externas)
-        function playUnlockChime() {
-            try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                if (!AudioCtx) return;
-                const ctx = new AudioCtx();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-
-                osc.type = "sine";
-                osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
-                osc.frequency.exponentialRampToValueAtTime(1046.50, ctx.currentTime + 0.18); // C6
-
-                gain.gain.setValueAtTime(0.08, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
-
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.36);
-            } catch (e) {
-                // Silencioso en caso de restricciones de audio
-            }
-        }
-
-        function checkDeviceOrientation() {
-            const isPortrait = window.innerHeight > window.innerWidth;
-
-            if (isPortrait) {
+        // Control de Orientación Horizontal
+        function checkOrientation() {
+            if (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth) {
                 orientationGate.classList.remove('hidden');
-                orientationGate.style.display = 'flex';
-                orientationStatusText.innerHTML = 'Orientación actual: <strong class="text-amber-400">VERTICAL</strong> (Gire la pantalla)';
-                orientationDot.className = "w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse";
-                wasPortrait = true;
             } else {
-                if (wasPortrait) {
-                    playUnlockChime();
-                    showToast("Formato Panorámico Calibrado", "La experiencia horizontal ha sido activada correctamente.");
-                }
                 orientationGate.classList.add('hidden');
-                orientationGate.style.display = 'none';
-                wasPortrait = false;
             }
         }
+        window.addEventListener('resize', checkOrientation);
+        checkOrientation();
 
-        // Oyentes reactivos para redimensionamiento y giroscopio
-        window.addEventListener('resize', checkDeviceOrientation);
-        window.addEventListener('orientationchange', checkDeviceOrientation);
-
-        // Intento de bloqueo de orientación táctil y pantalla completa si el usuario lo pulsa
-        btnForceLandscape.addEventListener('click', async () => {
-            try {
-                if (document.documentElement.requestFullscreen) {
-                    await document.documentElement.requestFullscreen();
-                }
-                if (screen.orientation && screen.orientation.lock) {
-                    await screen.orientation.lock('landscape').catch(() => {});
-                }
-            } catch (err) {}
-            // En caso de estar en una ventana de monitor estrecha, permite desbloquear
-            orientationGate.classList.add('hidden');
-            orientationGate.style.display = 'none';
-            playUnlockChime();
-            showToast("Modo Horizontal Forzado", "Iniciando experiencia en proporción panorámica.");
-        });
-
-        // Verificación inicial de orientación
-        checkDeviceOrientation();
-
-        const serviceDetailModal = document.getElementById('serviceDetailModal');
-        const dossierTechModal = document.getElementById('dossierTechModal');
-        const inquiryModal = document.getElementById('inquiryModal');
-
-        btnStartPresentation.addEventListener('click', () => {
-            const ytEmbedUrl = `https://www.youtube.com/embed/${MEDIA_CONFIG.youtubeVideoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&enablejsapi=1&color=white`;
-            ytPlayerIframe.src = ytEmbedUrl;
-
+        // Flujo de Video
+        document.getElementById('btnStartPresentation').addEventListener('click', () => {
+            ytPlayerIframe.src = `https://www.youtube.com/embed/${MEDIA_CONFIG.youtubeVideoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
             splashLayer.classList.add('opacity-0', 'pointer-events-none');
             setTimeout(() => {
                 splashLayer.classList.add('hidden');
                 youtubeLayer.classList.remove('hidden');
-                setTimeout(() => {
-                    youtubeLayer.classList.remove('opacity-0');
-                }, 50);
-            }, 600);
+                setTimeout(() => youtubeLayer.classList.remove('opacity-0'), 50);
+            }, 400);
         });
 
-        btnBackToSplash.addEventListener('click', () => {
+        document.getElementById('btnBackToSplash').addEventListener('click', () => {
             ytPlayerIframe.src = "";
             youtubeLayer.classList.add('opacity-0');
             setTimeout(() => {
                 youtubeLayer.classList.add('hidden');
                 splashLayer.classList.remove('hidden');
-                setTimeout(() => {
-                    splashLayer.classList.remove('opacity-0', 'pointer-events-none');
-                }, 50);
-            }, 600);
+                setTimeout(() => splashLayer.classList.remove('opacity-0', 'pointer-events-none'), 50);
+            }, 400);
         });
 
-        btnContinueFromVideo.addEventListener('click', () => {
+        document.getElementById('btnContinueFromVideo').addEventListener('click', () => {
             heroScreen.classList.add('opacity-0', 'pointer-events-none');
             setTimeout(() => {
                 heroScreen.classList.add('hidden');
                 portfolioScreen.classList.remove('opacity-0', 'pointer-events-none');
-                renderServices();
-            }, 600);
+                renderCards();
+            }, 500);
         });
 
-        btnBackToHero.addEventListener('click', () => {
+        document.getElementById('btnBackToHero').addEventListener('click', () => {
             heroScreen.classList.remove('hidden');
             setTimeout(() => {
                 heroScreen.classList.remove('opacity-0', 'pointer-events-none');
@@ -1015,200 +454,116 @@
             }, 50);
         });
 
-        toggleFullscreenBtn.addEventListener('click', () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(() => {});
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen().catch(() => {});
-                }
-            }
+        // Pantalla completa
+        document.getElementById('toggleFullscreenBtn').addEventListener('click', () => {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+            else document.exitFullscreen().catch(() => {});
         });
 
-        function showToast(title, subtitle) {
-            const toast = document.getElementById('toastMessage');
-            document.getElementById('toastTitle').textContent = title;
-            document.getElementById('toastSub').textContent = subtitle;
-            
-            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-            }, 3500);
-        }
-
-        function renderServices() {
-            countAll.textContent = strategicLinesData.length;
-            const searchTerm = searchInput.value.toLowerCase().trim();
-
-            const filtered = strategicLinesData.filter(serv => {
-                const matchCategory = currentFilter === 'all' || serv.category === currentFilter;
-                const matchSearch = serv.title.toLowerCase().includes(searchTerm) || 
-                                    serv.description.toLowerCase().includes(searchTerm) ||
-                                    serv.code.toLowerCase().includes(searchTerm) ||
-                                    serv.categoryLabel.toLowerCase().includes(searchTerm);
-                return matchCategory && matchSearch;
+        // Renderizado de Tarjetas Minimalistas
+        function renderCards() {
+            const query = (searchInput?.value || '').toLowerCase().trim();
+            const filtered = strategicLines.filter(line => {
+                const matchCat = currentFilter === 'all' || line.category === currentFilter;
+                const matchQuery = line.title.toLowerCase().includes(query) || line.desc.toLowerCase().includes(query) || line.code.toLowerCase().includes(query);
+                return matchCat && matchQuery;
             });
 
             servicesGrid.innerHTML = '';
-
-            if (filtered.length === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                filtered.forEach(serv => {
-                    const card = document.createElement('div');
-                    card.className = "group relative rounded-3xl bg-zinc-950 border border-zinc-800 p-6 flex flex-col justify-between hover:border-brand-gold/60 transition-all duration-300 hover:shadow-glow hover:-translate-y-1";
-                    
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase px-2.5 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/30">
-                                    ${serv.code} • ${serv.categoryLabel}
-                                </span>
-                                <span class="text-zinc-500 font-mono text-[10px] flex items-center gap-1">
-                                    <i class="fa-solid fa-cube text-brand-gold"></i> Recorrido Inmersivo 360°
-                                </span>
-                            </div>
-
-                            <div class="flex items-start gap-3.5 mb-3">
-                                <div class="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-gold text-lg shrink-0 group-hover:scale-110 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300">
-                                    <i class="fa-solid ${serv.icon}"></i>
-                                </div>
-                                <h3 class="text-lg font-display font-bold text-white group-hover:text-brand-gold-light transition-colors leading-snug">
-                                    ${serv.title}
-                                </h3>
-                            </div>
-
-                            <div class="mb-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/80">
-                                <p class="text-[11px] text-brand-gold-light italic font-medium leading-relaxed line-clamp-2">
-                                    ${serv.pitch}
-                                </p>
-                            </div>
-
-                            <p class="text-xs text-zinc-400 leading-relaxed mb-4 line-clamp-2">
-                                ${serv.description}
-                            </p>
+            filtered.forEach(line => {
+                const card = document.createElement('div');
+                card.className = "rounded-2xl bg-zinc-950 border border-zinc-900 p-5 flex flex-col justify-between hover:border-zinc-700 transition-all";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-mono font-bold text-brand-gold uppercase tracking-wider">${line.code}</span>
+                            <i class="fa-solid ${line.icon} text-zinc-600 text-sm"></i>
                         </div>
+                        <h3 class="font-display font-bold text-base text-white mb-1.5">${line.title}</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed mb-4">${line.desc}</p>
+                    </div>
 
-                        <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
-                            <span class="text-[11px] text-zinc-500 font-mono flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Estándar Global
-                            </span>
-                            <button onclick="openDetailModal(${serv.id})" class="px-3.5 py-1.5 rounded-xl bg-zinc-900 hover:bg-brand-gold hover:text-black border border-zinc-800 text-zinc-200 text-xs font-semibold tracking-wider transition-all flex items-center gap-1.5 cursor-pointer">
-                                <span>Ver Alcance Estratégico</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    `;
-                    servicesGrid.appendChild(card);
-                });
-            }
+                    <div class="pt-3 border-t border-zinc-900 flex items-center justify-between">
+                        <span class="text-[10px] font-mono text-zinc-500 uppercase">2D 4K + 360°</span>
+                        <button onclick="openDetail(${line.id})" class="px-3 py-1 rounded-lg bg-zinc-900 hover:bg-white hover:text-black text-xs text-zinc-300 font-mono transition-colors">
+                            Detalles
+                        </button>
+                    </div>
+                `;
+                servicesGrid.appendChild(card);
+            });
         }
 
-        filterContainer.addEventListener('click', (e) => {
+        // Filtros
+        document.getElementById('filterContainer').addEventListener('click', (e) => {
             const btn = e.target.closest('.filter-btn');
             if (!btn) return;
-
             document.querySelectorAll('.filter-btn').forEach(b => {
-                b.className = "filter-btn px-4 py-2 rounded-xl text-xs font-medium tracking-wider whitespace-nowrap bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 transition-all cursor-pointer";
+                b.className = "filter-btn px-3.5 py-1 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-all";
             });
-
-            btn.className = "filter-btn active-pill px-4 py-2 rounded-xl text-xs font-semibold tracking-wider whitespace-nowrap bg-white text-black transition-all cursor-pointer";
+            btn.className = "filter-btn px-3.5 py-1 rounded-lg text-xs font-semibold bg-white text-black transition-all";
             currentFilter = btn.dataset.filter;
-            renderServices();
+            renderCards();
         });
 
-        searchInput.addEventListener('input', renderServices);
+        if (searchInput) searchInput.addEventListener('input', renderCards);
 
-        window.openDetailModal = function(id) {
-            const serv = strategicLinesData.find(s => s.id === id);
-            if (!serv) return;
+        // Modales
+        window.openDetail = function(id) {
+            const item = strategicLines.find(x => x.id === id);
+            if (!item) return;
 
-            document.getElementById('detailBadgeCode').textContent = serv.code;
-            document.getElementById('detailCategory').textContent = serv.categoryLabel;
-            document.getElementById('detailTitle').textContent = serv.title;
-            document.getElementById('detailPitch').textContent = serv.pitch;
-            document.getElementById('detailDescription').textContent = serv.description;
-            document.getElementById('detailProblem').textContent = serv.problemSolved;
-            document.getElementById('detailRoi').textContent = serv.roi;
-            document.getElementById('detailAvCoverage').textContent = serv.avCoverage;
+            document.getElementById('detailCode').textContent = item.code;
+            document.getElementById('detailTitle').textContent = item.title;
+            document.getElementById('detailDesc').textContent = item.desc;
+            document.getElementById('detailProof').textContent = item.proof;
 
-            const bulletsList = document.getElementById('detailBullets');
-            bulletsList.innerHTML = '';
-            serv.bullets.forEach(b => {
+            const bullets = document.getElementById('detailBullets');
+            bullets.innerHTML = '';
+            item.bullets.forEach(b => {
                 const li = document.createElement('li');
-                li.className = "flex items-start gap-2";
-                li.innerHTML = `<i class="fa-solid fa-check text-brand-gold text-[10px] mt-1 shrink-0"></i> <span>${b}</span>`;
-                bulletsList.appendChild(li);
+                li.innerHTML = `<i class="fa-solid fa-check text-brand-gold text-[9px] mr-1.5"></i> ${b}`;
+                bullets.appendChild(li);
             });
 
-            serviceDetailModal.classList.remove('hidden');
-            serviceDetailModal.classList.add('flex');
+            document.getElementById('serviceDetailModal').classList.remove('hidden');
+            document.getElementById('serviceDetailModal').classList.add('flex');
         };
 
         document.getElementById('btnCloseDetailModal').addEventListener('click', () => {
-            serviceDetailModal.classList.add('hidden');
-            serviceDetailModal.classList.remove('flex');
+            document.getElementById('serviceDetailModal').classList.add('hidden');
+            document.getElementById('serviceDetailModal').classList.remove('flex');
         });
 
-        document.getElementById('btnRequestLNQuote').addEventListener('click', () => {
-            serviceDetailModal.classList.add('hidden');
-            serviceDetailModal.classList.remove('flex');
-            inquiryModal.classList.remove('hidden');
-            inquiryModal.classList.add('flex');
+        // Modal Ecosistema
+        document.getElementById('btnOpenEcosystemModal').addEventListener('click', () => {
+            document.getElementById('ecosystemModal').classList.remove('hidden');
+            document.getElementById('ecosystemModal').classList.add('flex');
+        });
+        document.getElementById('btnCloseEcosystemModal').addEventListener('click', () => {
+            document.getElementById('ecosystemModal').classList.add('hidden');
+            document.getElementById('ecosystemModal').classList.remove('flex');
         });
 
-        document.getElementById('btnOpenVrDemoNotice').addEventListener('click', () => {
-            showToast("Experiencia Inmersiva 360°", "Nuestra productora dispone de las muestras 360° preconfiguradas para su demostración ante la Junta Directiva.");
-        });
-
-        document.getElementById('btnOpenDossierTechModal').addEventListener('click', () => {
-            dossierTechModal.classList.remove('hidden');
-            dossierTechModal.classList.add('flex');
-        });
-
-        document.getElementById('btnCloseDossierTechModal').addEventListener('click', () => {
-            dossierTechModal.classList.add('hidden');
-            dossierTechModal.classList.remove('flex');
-        });
-
-        document.getElementById('btnContactDossier').addEventListener('click', () => {
-            dossierTechModal.classList.add('hidden');
-            dossierTechModal.classList.remove('flex');
-            inquiryModal.classList.remove('hidden');
-            inquiryModal.classList.add('flex');
-        });
-
+        // Modal Contacto
         document.getElementById('btnOpenInquiryModal').addEventListener('click', () => {
-            inquiryModal.classList.remove('hidden');
-            inquiryModal.classList.add('flex');
+            document.getElementById('inquiryModal').classList.remove('hidden');
+            document.getElementById('inquiryModal').classList.add('flex');
         });
-
         document.getElementById('btnCloseInquiryModal').addEventListener('click', () => {
-            inquiryModal.classList.add('hidden');
-            inquiryModal.classList.remove('flex');
+            document.getElementById('inquiryModal').classList.add('hidden');
+            document.getElementById('inquiryModal').classList.remove('flex');
         });
 
         document.getElementById('inquiryForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('inputName').value;
-            const sector = document.getElementById('inputSector').value;
-            inquiryModal.classList.add('hidden');
-            inquiryModal.classList.remove('flex');
-            showToast("Propuesta Registrada", `Fase de consultoría y agenda técnica iniciada para: ${name} (${sector}).`);
+            document.getElementById('inquiryModal').classList.add('hidden');
+            document.getElementById('inquiryModal').classList.remove('flex');
+            alert("Solicitud registrada correctamente.");
             e.target.reset();
         });
 
-        [serviceDetailModal, dossierTechModal, inquiryModal].forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-            });
-        });
-
-        renderServices();
+        renderCards();
     </script>
 </body>
 </html>
